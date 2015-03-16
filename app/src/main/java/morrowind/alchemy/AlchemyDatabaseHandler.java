@@ -30,7 +30,7 @@ public class AlchemyDatabaseHandler extends SQLiteOpenHelper
 	public void onCreate(SQLiteDatabase db)
 	{
 		db.execSQL("drop table if exists ingredients");
-		db.execSQL("create table ingredients (id integer primary key, name text, icon integer, e1 text, e2 text, e3 text, e4 text)");
+		db.execSQL("create table ingredients (id integer primary key, name text, icon integer, e1 text, e2 text, e3 text, e4 text, weight real, value integer)");
 	}
 
 	@Override
@@ -51,6 +51,8 @@ public class AlchemyDatabaseHandler extends SQLiteOpenHelper
 			values.put("e2", ingredient.getEffects().get(1).getEffectName());
 			values.put("e3", ingredient.getEffects().get(2).getEffectName());
 			values.put("e4", ingredient.getEffects().get(3).getEffectName());
+			values.put("weight", ingredient.getIngredientWeight());
+			values.put("value", ingredient.getIngredientValue());
 		}
 		catch(Exception ex)
 		{
@@ -70,7 +72,7 @@ public class AlchemyDatabaseHandler extends SQLiteOpenHelper
 		if (cursor.moveToFirst()) {
 			do {
 				String [] effect_names = { cursor.getString(3) , cursor.getString(4), cursor.getString(5), cursor.getString(6)};
-				Ingredient ingredient = new Ingredient(cursor.getString(1), cursor.getInt(2), effect_names );
+				Ingredient ingredient = new Ingredient(cursor.getInt(0), cursor.getString(1), cursor.getString(2), effect_names, cursor.getFloat(7), cursor.getInt(8) );
 				ingredients.add(ingredient);
 			} while (cursor.moveToNext());
 		}

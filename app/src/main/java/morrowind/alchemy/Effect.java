@@ -16,6 +16,12 @@ public class Effect
 		this.effectName = effectName;
 	}
 
+	public Effect(String effectName)
+	{
+		this.effectIcon = 0;
+		this.effectName = effectName;
+	}
+
 	public String getEffectName(){return effectName;}
 	public int getEffectIcon(){return effectIcon;}
 }

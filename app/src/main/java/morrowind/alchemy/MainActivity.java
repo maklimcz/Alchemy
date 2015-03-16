@@ -24,7 +24,6 @@ public class MainActivity extends ActionBarActivity
 {
 
 	private ListView listView;
-	private TextView title, link, summary;
 	private List<Ingredient> ingredients;
 	private MyAdapter ingredientsAdapter ;
 
@@ -35,12 +34,11 @@ public class MainActivity extends ActionBarActivity
 		setContentView(R.layout.activity_main);
 
 		listView = (ListView) findViewById(R.id.listView);
-		MyXMLParser myXMLParser = new MyXMLParser((XmlPullParser) this.getResources().getXml(R.xml.ingredients));
+
+		MyXMLParser myXMLParser = new MyXMLParser(getResources().getXml(R.xml.ingredients));
 		try
 		{
 			ingredients = myXMLParser.parse();
-			ingredientsAdapter = new MyAdapter(this, ingredients);
-			listView.setAdapter(ingredientsAdapter);
 		} catch (XmlPullParserException e)
 		{
 			e.printStackTrace();
@@ -48,18 +46,22 @@ public class MainActivity extends ActionBarActivity
 		{
 			e.printStackTrace();
 		}
-
+		/*
 		AlchemyDatabaseHandler alchemyDatabaseHandler = new AlchemyDatabaseHandler(this);
-		Log.d("Insert: ", "Inserting ..");
-		for(Ingredient ingredient : ingredients)	alchemyDatabaseHandler.addIngredient(ingredient);
-		Log.d("Reading: ", "Reading all ingredients..");
-		List<Ingredient> i = alchemyDatabaseHandler.getIngredients();
-		for (Ingredient ingredient : i)
+		//alchemyDatabaseHandler.addIngredient(new Ingredient("Kot",R.drawable.nyan , new String[] {"Miauu"}));
+		Log.d("Reading: ", "Reading all ingredients...");
+		ingredients = alchemyDatabaseHandler.getIngredients();
+		for (Ingredient ingredient : ingredients)
 		{
 			String log = "Name: " + ingredient.getIngredientName() + " icon: " + ingredient.getIngredientIcon() + " effects: ";
 			for(Effect e : ingredient.getEffects()) log += e.getEffectName() + ", ";
 			Log.d("Ingredient: ", log);
 		}
+		*/
+
+
+		ingredientsAdapter = new MyAdapter(this, ingredients);
+		listView.setAdapter(ingredientsAdapter);
 	}
 
 	@Override

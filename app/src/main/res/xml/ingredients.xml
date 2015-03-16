@@ -1,27 +1,811 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ingredients>
     <ingredient>
-        <name>Solny ryż</name>
-        <effect>Przywrócenie kondycji</effect>
-        <effect>Przywrócenie zdrowia</effect>
+        <name>Ampułka</name>
+        <icon>ing_02230307.jpg</icon>
+        <weight>0.1</weight>
+        <value>2</value>
+        <effect>Chodzenie po Wodzie</effect>
+        <effect>Paraliż</effect>
+        <effect>Wykrycie Zwierzęcia</effect>
+        <effect>Obniża się Inteligencja</effect>
     </ingredient>
     <ingredient>
-        <name>Purpurowy Corpinus</name>
-        <effect>Chodzenie po wodzie</effect>
+        <name>Boleśniak</name>
+        <icon>ing_03214310.jpg</icon>
+        <weight>0.1</weight>
+        <value>2</value>
+        <effect>Obniża się Siła</effect>
+        <effect>Wyleczenie z Zatrucia</effect>
+        <effect>Obniżenie Zdrowia</effect>
+        <effect>Przywrócenie Siła Woli</effect>
+    </ingredient>
+    <ingredient>
+        <name>Bolączka Biedaka</name>
+        <icon>ing_03214320.jpg</icon>
+        <weight>0.5</weight>
+        <value>1</value>
+        <effect>Obniża się Szybkość</effect>
+        <effect>Obniża się Wytrzymałość</effect>
+        <effect>Rozproszenie</effect>
+        <effect>Obniża się Siła</effect>
+    </ingredient>
+    <ingredient>
+        <name>Bryndza</name>
+        <icon>ing_03214329.jpg</icon>
+        <weight>0.1</weight>
+        <value>10</value>
+        <effect>Przywrócenie Kondycji</effect>
+        <effect>Premia do Kondycji</effect>
+        <effect>Lekkość</effect>
+        <effect>Telekineza</effect>
+    </ingredient>
+    <ingredient>
+        <name>Bułeczka</name>
+        <icon>ing_03214343.jpg</icon>
+        <weight>0.2</weight>
+        <value>1</value>
+        <effect>Przywrócenie Kondycji</effect>
     </ingredient>
     <ingredient>
         <name>Chleb</name>
-        <effect>Przywrócenie kondycji</effect>
+        <icon>ing_03214352.jpg</icon>
+        <weight>0.2</weight>
+        <value>1</value>
+        <effect>Przywrócenie Kondycji</effect>
     </ingredient>
     <ingredient>
-        <name>Pies</name>
-        <effect>Raczej niesmaczny</effect>
+        <name>Czarny Licheń</name>
+        <icon>ing_03214402.jpg</icon>
+        <weight>0.1</weight>
+        <value>2</value>
+        <effect>Obniża się Siła</effect>
+        <effect>Odporność na Mróz</effect>
+        <effect>Obniża się Szybkość</effect>
+        <effect>Wyleczenie z Zatrucia</effect>
     </ingredient>
     <ingredient>
-        <name>Duże jajko</name>
-        <effect>Przywrócenie kondycji</effect>
+        <name>Czarny Pylnik</name>
+        <icon>ing_03214411.jpg</icon>
+        <weight>0.1</weight>
+        <value>2</value>
+        <effect>Obniża się Zwinność</effect>
+        <effect>Odporność na Ogień</effect>
+        <effect>Obniża się Wytrzymałość</effect>
+        <effect>Światło</effect>
+    </ingredient>
+    <ingredient>
+        <name>Czerniówka</name>
+        <icon>ing_03214419.jpg</icon>
+        <weight>0.1</weight>
+        <value>2</value>
+        <effect>Obniżenie Kondycji</effect>
+        <effect>Przywrócenie Many</effect>
+        <effect>Tarcza Ognia</effect>
+        <effect>Odbicie</effect>
+    </ingredient>
+    <ingredient>
+        <name>Czerwony Licheń</name>
+        <icon>ing_03214427.jpg</icon>
+        <weight>0.1</weight>
+        <value>25</value>
+        <effect>Obniża się Szybkość</effect>
+        <effect>Światło</effect>
+        <effect>Wyleczenie ze Zwykłej Choroby</effect>
+        <effect>Obniżenie Many</effect>
+    </ingredient>
+    <ingredient>
+        <name>Diament</name>
+        <icon>ing_03214504.jpg</icon>
+        <weight>0.2</weight>
+        <value>250</value>
+        <effect>Obniża się Zwinność</effect>
+        <effect>Niewidzialność</effect>
+        <effect>Odbicie</effect>
+        <effect>Wykrycie Kluczy</effect>
+    </ingredient>
+    <ingredient>
+        <name>Dreughowy Wosk</name>
+        <icon>ing_03214513.jpg</icon>
+        <weight>0.2</weight>
+        <value>100</value>
+        <effect>Zwiększa się Siła</effect>
+        <effect>Przywrócenie: Siła</effect>
+        <effect>Obniża się Szczęście</effect>
+        <effect>Obniża się Siła Woli</effect>
+    </ingredient>
+    <ingredient>
+        <name>Duże Jajo Kwama</name>
+        <icon>ing_03214522.jpg</icon>
+        <weight>2.0</weight>
+        <value>2</value>
+        <effect>Przywrócenie Kondycji</effect>
+        <effect>Paraliż</effect>
+        <effect>Tarcza Mrozu</effect>
+        <effect>Premia do Zdrowia</effect>
+    </ingredient>
+    <ingredient>
+        <name>Duże Zawiniątko Spaczonego Mięsa</name>
+        <icon>ing_03214531.jpg</icon>
+        <p class="out"><b>Waga: </b>1.0</p>
+        <value>0</value>
+        <effect>Obniżenie Kondycji</effect>
+        <effect>Obniżenie Zdrowia</effect>
+        <effect>Obniżenie Many</effect>
+    </ingredient>
+    <ingredient>
+        <name>Duży kawałek spaczonego mięsa</name>
+        <icon>ing_03214540.jpg</icon>
+        <weight>1.0</weight>
+        <value>0</value>
+        <effect>Obniżenie Kondycji</effect>
+        <effect>Obniżenie Zdrowia</effect>
+        <effect>Obniżenie Many</effect>
+    </ingredient>
+    <ingredient>
+        <name>Dławnik</name>
+        <icon>ing_03214552.jpg</icon>
+        <weight>0.1</weight>
+        <value>1</value>
+        <effect>Obniża się Szczęście</effect>
+        <effect>Przywrócenie Kondycji</effect>
+        <effect>Wyleczenie ze Zwykłej Choroby</effect>
+        <effect>Obniża się Siła Woli</effect>
+    </ingredient>
+    <ingredient>
+        <name>Ektoplazma</name>
+        <icon>ing_03214602.jpg</icon>
+        <weight>0.1</weight>
+        <value>10</value>
+        <effect>Zwiększa się Zwinność</effect>
+        <effect>Wykrycie Zwierzęcia</effect>
+        <effect>Obniża się Siła</effect>
+        <effect>Obniżenie Zdrowia</effect>
+    </ingredient>
+    <ingredient>
+        <name>Grobowy Pył</name>
+        <icon>ing_03214610.jpg</icon>
+        <weight>0.1</weight>
+        <value>1</value>
+        <effect>Obniża się Inteligencja</effect>
+        <effect>Wyleczenie ze Zwykłej Choroby</effect>
+        <effect>Obniżenie Many</effect>
+        <effect>Przywrócenie: Wytrzymałość</effect>
+    </ingredient>
+    <ingredient>
+        <name>Hypha Facia</name>
+        <icon>ing_03214618.jpg</icon>
+        <weight>0.1</weight>
+        <value>1</value>
+        <effect>Obniża się Szczęście</effect>
+        <effect>Obniża się Zwinność</effect>
+        <effect>Obniżenie Kondycji</effect>
+        <effect>Wykrywanie Zaklętych Przedmiotów</effect>
+    </ingredient>
+    <ingredient>
+        <name>Korzeń Korkowca</name>
+        <icon>ing_03214627.jpg</icon>
+        <weight>0.1</weight>
+        <value>5</value>
+        <effect>Wyleczenie z Paraliżu</effect>
+        <effect>Przywrócenie Zdrowia</effect>
+        <effect>Tarcza Błyskawic</effect>
+        <effect>Zwiększa się Szczęście</effect>
+    </ingredient>
+    <ingredient>
+        <name>Korzeń Trama</name>
+        <icon>ing_03214637.jpg</icon>
+        <weight>0.1</weight>
+        <value>10</value>
+        <effect>Przywrócenie: Siła Woli</effect>
         <effect>Lewitacja</effect>
-        <effect>Premia do szybkości</effect>
-        <effect>Wykrycie kluczy</effect>
+        <effect>Obniżenie Many</effect>
+        <effect>Obniża się Szybkość</effect>
+    </ingredient>
+    <ingredient>
+        <name>Księżycowy Cukier</name>
+        <icon>ing_03214646.jpg</icon>
+        <weight>0.1</weight>
+        <value>50</value>
+        <effect>Zwiększa się Szybkość</effect>
+        <effect>Rozproszenie</effect>
+        <effect>Obniża się Wytrzymałość</effect>
+        <effect>Obniża się Szczęście</effect>
+    </ingredient>
+    <ingredient>
+        <name>Kwiat Koda</name>
+        <icon>ing_03214654.jpg</icon>
+        <weight>0.1</weight>
+        <value>23</value>
+        <effect>Obniża się Osobowość</effect>
+        <effect>Lewitacja</effect>
+        <effect>Obniża się Inteligencja</effect>
+        <effect>Obniżenie Zdrowia</effect>
+    </ingredient>
+    <ingredient>
+        <name>Liść Przykrywca</name>
+        <icon>ing_03214702.jpg</icon>
+        <p class="out"><b>Waga: </b>0.1</p>
+        <value>30</value>
+        <effect>Przywrócenie Kondycji</effect>
+        <effect>Paraliż</effect>
+        <effect>Oddychanie w Wodzie</effect>
+        <effect>Przywrócenie: Szczęście</effect>
+    </ingredient>
+    <ingredient>
+        <name>Ludzkie Mięso</name>
+        <icon>ing_03214710.jpg</icon>
+        <weight>1.0</weight>
+        <value>1</value>
+        <effect>Premia do Zdrowia</effect>
+        <effect>Obniża się Inteligencja</effect>
+        <effect>Obniża się Osobowość</effect>
+    </ingredient>
+    <ingredient>
+        <name>Łajno</name>
+        <icon>ing_03214717.jpg</icon>
+        <weight>0.1</weight>
+        <value>1</value>
+        <effect>Obniża się Inteligencja</effect>
+        <effect>Wykrycie Kluczy</effect>
+        <effect>Obniża się Osobowość</effect>
+        <effect>Wyleczenie ze Zwykłej Choroby</effect>
+    </ingredient>
+    <ingredient>
+        <name>Łuski</name>
+        <icon>ing_03214725.jpg</icon>
+        <weight>0.2</weight>
+        <value>2</value>
+        <effect>Obniża się Osobowość</effect>
+        <effect>Chodzenie po Wodzie</effect>
+        <effect>Przywrócenie: Wytrzymałość</effect>
+        <effect>Ryba w Wodzie</effect>
+    </ingredient>
+    <ingredient>
+        <name>Małe Jajo Kwama</name>
+        <icon>ing_03214733.jpg</icon>
+        <weight>0.5</weight>
+        <value>1</value>
+        <effect>Przywrócenie Kondycji</effect>
+    </ingredient>
+    <ingredient>
+        <name>Małe Zawiniątko Spaczonego Mięsa</name>
+        <icon>ing_03214741.jpg</icon>
+        <weight>0.2</weight>
+        <value>0</value>
+        <effect>Obniżenie Kondycji</effect>
+        <effect>Obniżenie Zdrowia</effect>
+        <effect>Obniżenie Many</effect>
+    </ingredient>
+    <ingredient>
+        <name>Mały kawałek spaczonego mięsa</name>
+        <icon>ing_03214750.jpg</icon>
+        <weight>0.2</weight>
+        <value>0</value>
+        <effect>Obniżenie Kondycji</effect>
+        <effect>Obniżenie Zdrowia</effect>
+        <effect>Obniżenie Many</effect>
+    </ingredient>
+    <ingredient>
+        <name>Maź Pędraka</name>
+        <icon>ing_03214919.jpg</icon>
+        <weight>0.1</weight>
+        <value>10</value>
+        <effect>Zwiększa się Siła Woli</effect>
+        <effect>Wyleczenie z Zatrucia</effect>
+        <effect>Wyleczenie z Zarazy</effect>
+        <effect>Przywrócenie: Siła Woli</effect>
+    </ingredient>
+    <ingredient>
+        <name>Mączka Kostna</name>
+        <icon>ing_03214930.jpg</icon>
+        <weight>0.2</weight>
+        <value>2</value>
+        <effect>Przywrócenie: Zwinność</effect>
+        <effect>Telekineza</effect>
+        <effect>Obniżenie Kondycji</effect>
+        <effect>Obniża się Osobowość</effect>
+    </ingredient>
+    <ingredient>
+        <name>Mięso Krabów</name>
+        <icon>ing_03214938.jpg</icon>
+        <weight>0.5</weight>
+        <value>1</value>
+        <effect>Przywrócenie Kondycji</effect>
+        <effect>Tarcza Błyskawic</effect>
+        <effect>Odporność na Porażenia</effect>
+        <effect>Przywrócenie: Szczęście</effect>
+    </ingredient>
+    <ingredient>
+        <name>Mięso Ogara</name>
+        <icon>ing_03214946.jpg</icon>
+        <weight>1.0</weight>
+        <value>2</value>
+        <effect>Przywrócenie Kondycji</effect>
+        <effect>Premia do Kondycji</effect>
+        <effect>Odbicie</effect>
+        <effect>Wykrywanie Zaklętych Przedmiotów</effect>
+    </ingredient>
+    <ingredient>
+        <name>Mięso Pędraka</name>
+        <icon>ing_03214955.jpg</icon>
+        <weight>0.2</weight>
+        <value>5</value>
+        <effect>Przywrócenie Kondycji</effect>
+        <effect>Premia do Kondycji</effect>
+        <effect>Brzemię</effect>
+        <effect>Ryba w Wodzie</effect>
+    </ingredient>
+    <ingredient>
+        <name>Mięso Szczura</name>
+        <icon>ing_03215004.jpg</icon>
+        <weight>1.0</weight>
+        <value>1</value>
+        <effect>Obniżenie Many</effect>
+        <effect>Paraliż</effect>
+        <effect>Wyleczenie z Zatrucia</effect>
+        <effect>Odporność na Trucizny</effect>
+    </ingredient>
+    <ingredient>
+        <name>Mokradłowiec</name>
+        <icon>ing_03215012.jpg</icon>
+        <weight>0.1</weight>
+        <value>1</value>
+        <effect>Przywrócenie Zdrowia</effect>
+        <effect>Wykrywanie Zaklętych Przedmiotów</effect>
+        <effect>Obniża się Siła Woli</effect>
+        <effect>Obniżenie Kondycji</effect>
+    </ingredient>
+    <ingredient>
+        <name>Ognisty Płatek</name>
+        <icon>ing_03215021.jpg</icon>
+        <weight>0.1</weight>
+        <value>2</value>
+        <effect>Odporność na Ogień</effect>
+        <effect>Obniżenie Zdrowia</effect>
+        <effect>Absorpcja Magii</effect>
+        <effect>Paraliż</effect>
+    </ingredient>
+    <ingredient>
+        <name>Perła</name>
+        <icon>ing_03215029.jpg</icon>
+        <weight>0.2</weight>
+        <value>100</value>
+        <effect>Obniża się Zwinność</effect>
+        <effect>Rozproszenie</effect>
+        <effect>Oddychanie w Wodzie</effect>
+        <effect>Odporność na Zwykłe Choroby</effect>
+    </ingredient>
+    <ingredient>
+        <name>Pióra Skrzekacza</name>
+        <icon>ing_03215050.jpg</icon>
+        <weight>0.1</weight>
+        <value>20</value>
+        <effect>Obniża się Siła Woli</effect>
+        <effect>Lewitacja</effect>
+    </ingredient>
+    <ingredient>
+        <name>Płatki Goryczaka</name>
+        <icon>ing_03215129.jpg</icon>
+        <weight>0.1</weight>
+        <value>5</value>
+        <effect>Przywrócenie: Inteligencja</effect>
+        <effect>Niewidzialność</effect>
+        <effect>Obniża się Wytrzymałość</effect>
+        <effect>Obniżenie Many</effect>
+    </ingredient>
+    <ingredient>
+        <name>Płatki Skałokwiatu</name>
+        <icon>ing_03215137.jpg</icon>
+        <weight>0.1</weight>
+        <value>1</value>
+        <effect>Przywrócenie: Siła</effect>
+        <effect>Premia do Many</effect>
+        <effect>Obniża się Szczęście</effect>
+        <effect>Zwiększa się Osobowość</effect>
+    </ingredient>
+    <ingredient>
+        <name>Popielna Bulwa</name>
+        <icon>ing_03215146.jpg</icon>
+        <weight>0.5</weight>
+        <value>1</value>
+        <effect>Zwiększa się Inteligencja</effect>
+        <effect>Zwiększa się Siła</effect>
+        <effect>Odporność na Zwykłe Choroby</effect>
+        <effect>Wykrycie Kluczy</effect>
+    </ingredient>
+    <ingredient>
+        <name>Popielna Sól</name>
+        <icon>ing_03215155.jpg</icon>
+        <weight>0.1</weight>
+        <value>25</value>
+        <effect>Obniża się Zwinność</effect>
+        <effect>Odporność na Magię</effect>
+        <effect>Wyleczenie z Zarazy</effect>
+        <effect>Odporność na Magię</effect>
+    </ingredient>
+    <ingredient>
+        <name>Puchlina</name>
+        <icon>ing_03215202.jpg</icon>
+        <p class="out"><b>Waga: </b>0.1</p>
+        <value>5</value>
+        <effect>Obniżenie Many</effect>
+        <effect>Zwiększa się Inteligencja</effect>
+        <effect>Zwiększa się Siła Woli</effect>
+        <effect>Wykrycie Zwierzęcia</effect>
+    </ingredient>
+    <ingredient>
+        <name>Purpurowy Coprinus</name>
+        <icon>ing_03215210.jpg</icon>
+        <weight>0.5</weight>
+        <value>1</value>
+        <effect>Chodzenie po Wodzie</effect>
+        <effect>Obniżenie Kondycji</effect>
+        <effect>Trucizna</effect>
+    </ingredient>
+    <ingredient>
+        <name>Rubin</name>
+        <icon>ing_03215219.jpg</icon>
+        <weight>0.2</weight>
+        <value>200</value>
+        <effect>Obniżenie Zdrowia</effect>
+        <effect>Lekkość</effect>
+        <effect>Przywrócenie: Inteligencja</effect>
+        <effect>Obniża się Zwinność</effect>
+    </ingredient>
+    <ingredient>
+        <name>Ruda Ebonu</name>
+        <icon>ing_03215227.jpg</icon>
+        <p class="out"><b>Waga:</b> 10.0</p>
+        <value>200</value>
+        <effect>Obniża się Zwinność</effect>
+        <effect>Wyleczenie z Zatrucia</effect>
+        <effect>Tarcza Mrozu</effect>
+        <effect>Przywrócenie: Szybkość</effect>
+    </ingredient>
+    <ingredient>
+        <name>Rumieniak</name>
+        <icon>ing_03215235.jpg</icon>
+        <weight>0.1</weight>
+        <value>1</value>
+        <effect>Obniża się Siła Woli</effect>
+        <effect>Zwiększa się Zwinność</effect>
+        <effect>Obniżenie Zdrowia</effect>
+        <effect>Wyleczenie z Zatrucia</effect>
+    </ingredient>
+    <ingredient>
+        <name>Serce Daedry</name>
+        <icon>ing_03215243.jpg</icon>
+        <weight>1.0</weight>
+        <value>200</value>
+        <effect>Przywrócenie Many</effect>
+        <effect>Zwiększa się Wytrzymałość</effect>
+        <effect>Obniża się Zwinność</effect>
+        <effect>Kocie oczy</effect>
+    </ingredient>
+    <ingredient>
+        <name>Serce Ghoula</name>
+        <icon>ing_03215251.jpg</icon>
+        <weight>0.5</weight>
+        <value>150</value>
+        <effect>Paraliż</effect>
+        <effect>Wyleczenie z Zatrucia</effect>
+        <effect>Premia do Ataku</effect>
+    </ingredient>
+    <ingredient>
+        <name>Skóra Alita</name>
+        <icon>ing_03215258.jpg</icon>
+        <weight>1.0</weight>
+        <value>5</value>
+        <effect>Obniża się Inteligencja</effect>
+        <effect>Odporność na Trucizny</effect>
+        <effect>Telekineza</effect>
+        <effect>Wykrycie Zwierzęcia</effect>
+    </ingredient>
+    <ingredient>
+        <name>Skóra Daedry</name>
+        <icon>ing_03215307.jpg</icon>
+        <weight>0.2</weight>
+        <value>200</value>
+        <effect>Zwiększa się Siła</effect>
+        <effect>Wyleczenie ze Zwykłej Choroby</effect>
+        <effect>Paraliż</effect>
+        <effect>Ryba w Wodzie</effect>
+    </ingredient>
+    <ingredient>
+        <name>Skóra Guara</name>
+        <icon>ing_03215316.jpg</icon>
+        <weight>1.0</weight>
+        <value>5</value>
+        <effect>Obniżenie Kondycji</effect>
+        <effect>Zwiększa się Wytrzymałość</effect>
+        <effect>Przywrócenie: Osobowość</effect>
+        <effect>Zwiększa się Szczęście</effect>
+    </ingredient>
+    <ingredient>
+        <name>Skóra Kagouti</name>
+        <icon>ing_03215324.jpg</icon>
+        <weight>1.0</weight>
+        <value>2</value>
+        <effect>Obniżenie Kondycji</effect>
+        <effect>Zwiększa się Szybkość</effect>
+        <effect>Odporność na Zwykłe Choroby</effect>
+        <effect>Kocie oczy</effect>
+    </ingredient>
+    <ingredient>
+        <name>Skóra Młokosa</name>
+        <icon>ing_03215332.jpg</icon>
+        <weight>0.1</weight>
+        <value>10</value>
+        <effect>Obniżenie Many</effect>
+        <effect>Wyleczenie z Paraliżu</effect>
+        <effect>Przywrócenie: Osobowość</effect>
+        <effect>Przywrócenie: Siła</effect>
+    </ingredient>
+    <ingredient>
+        <name>Skóra Netcha</name>
+        <icon>ing_03215341.jpg</icon>
+        <weight>1.0</weight>
+        <value>1</value>
+        <effect>Zwiększa się Wytrzymałość</effect>
+        <effect>Zwiększa się Inteligencja</effect>
+        <effect>Obniża się Osobowość</effect>
+        <effect>Wyleczenie z Paraliżu</effect>
+    </ingredient>
+    <ingredient>
+        <name>Sloadowe Mydło</name>
+        <icon>ing_03215350.jpg</icon>
+        <weight>0.1</weight>
+        <value>50</value>
+        <effect>Obniża się Osobowość</effect>
+        <effect>Zwiększa się Zwinność</effect>
+        <effect>Tarcza Ognia</effect>
+        <effect>Przywrócenie: Zwinność</effect>
+    </ingredient>
+    <ingredient>
+        <name>Sole Mrozu</name>
+        <icon>ing_03215358.jpg</icon>
+        <weight>0.1</weight>
+        <value>75</value>
+        <effect>Obniża się Szybkość</effect>
+        <effect>Przywrócenie Many</effect>
+        <effect>Tarcza Mrozu</effect>
+        <effect>Odporność na Ogień</effect>
+    </ingredient>
+    <ingredient>
+        <name>Sole Ogniste</name>
+        <icon>ing_03215405.jpg</icon>
+        <weight>0.1</weight>
+        <value>100</value>
+        <effect>Obniżenie Zdrowia</effect>
+        <effect>Zwiększa się Zwinność</effect>
+        <effect>Odporność na Mróz</effect>
+        <effect>Tarcza Ognia</effect>
+    </ingredient>
+    <ingredient>
+        <name>Sole Pustki</name>
+        <icon>ing_03215525.jpg</icon>
+        <weight>0.1</weight>
+        <value>100</value>
+        <effect>Przywrócenie Many</effect>
+        <effect>Absorpcja Magii</effect>
+        <effect>Paraliż</effect>
+        <effect>Obniża się Wytrzymałość</effect>
+    </ingredient>
+    <ingredient>
+        <name>Solny Ryż</name>
+        <icon>ing_03215534.jpg</icon>
+        <weight>0.1</weight>
+        <value>1</value>
+        <effect>Przywrócenie Kondycji</effect>
+        <effect>Premia do Many</effect>
+        <effect>Obniża się Siła</effect>
+        <effect>Przywrócenie Zdrowia</effect>
+    </ingredient>
+    <ingredient>
+        <name>Spaczona Tkanka</name>
+        <icon>ing_03215541.jpg</icon>
+        <weight>0.1</weight>
+        <value>50</value>
+        <effect>Obniżenie Kondycji</effect>
+        <effect>Zwiększa się Szczęście</effect>
+        <effect>Obniża się Siła Woli</effect>
+        <effect>Przywrócenie Zdrowia</effect>
+    </ingredient>
+    <ingredient>
+        <name>Surowe Szkło</name>
+        <icon>ing_03215549.jpg</icon>
+        <weight>2.0</weight>
+        <value>200</value>
+        <effect>Obniża się Inteligencja</effect>
+        <effect>Obniża się Siła</effect>
+        <effect>Obniża się Szybkość</effect>
+        <effect>Tarcza Ognia</effect>
+    </ingredient>
+    <ingredient>
+        <name>Szlam z meteorytu</name>
+        <icon>ing_03215558.jpg</icon>
+        <weight>0.1</weight>
+        <value>10</value>
+        <effect>Zwiększa się Siła Woli</effect>
+        <effect>Wyleczenie z Zatrucia</effect>
+        <effect>Wyleczenie z Zarazy</effect>
+        <effect>Przywrócenie: Siła Woli</effect>
+    </ingredient>
+    <ingredient>
+        <name>Szmaragd</name>
+        <icon>ing_03215606.jpg</icon>
+        <weight>0.2</weight>
+        <value>150</value>
+        <effect>Premia do Many</effect>
+        <effect>Przywrócenie Zdrowia</effect>
+        <effect>Obniża się Zwinność</effect>
+        <effect>Obniża się Wytrzymałość</effect>
+    </ingredient>
+    <ingredient>
+        <name>Średnie Zawiniątko Spaczonego Mięsa</name>
+        <icon>ing_03215615.jpg</icon>
+        <p class="out"><b>Waga: </b>0.5</p>
+        <value>0</value>
+        <effect>Obniżenie Kondycji</effect>
+        <effect>Obniżenie Zdrowia</effect>
+        <effect>Obniżenie Many</effect>
+    </ingredient>
+    <ingredient>
+        <name>Średni Kawałek Spaczonego Mięsa</name>
+        <icon>ing_03215622.jpg</icon>
+        <p class="out"><b>Waga: </b>0.5</p>
+        <value>0</value>
+        <effect>Obniżenie Kondycji</effect>
+        <effect>Obniżenie Zdrowia</effect>
+        <effect>Obniżenie Many</effect>
+    </ingredient>
+    <ingredient>
+        <name>Świetlik Russula</name>
+        <icon>ing_03215632.jpg</icon>
+        <weight>0.2</weight>
+        <value>1</value>
+        <effect>Oddychanie w Wodzie</effect>
+        <effect>Obniżenie Kondycji</effect>
+        <effect>Trucizna</effect>
+    </ingredient>
+    <ingredient>
+        <name>Trucizna</name>
+        <icon>ing_03215639.jpg</icon>
+        <weight>0.1</weight>
+        <value>0</value>
+        <effect>Podatność na Trucizny</effect>
+        <effect>Obniżenie Zdrowia</effect>
+        <effect>Obniżenie Kondycji</effect>
+        <effect>Trucizna</effect>
+    </ingredient>
+    <ingredient>
+        <name>Wampirzy Pył</name>
+        <icon>ing_03215647.jpg</icon>
+        <weight>0.1</weight>
+        <value>500</value>
+        <effect>Premia do Zdrowia</effect>
+        <effect>Zwiększa się Siła</effect>
+        <effect>Absorpcja Magii</effect>
+        <effect>Wampiryzm</effect>
+    </ingredient>
+    <ingredient>
+        <name>Wierzbowy Pylnik</name>
+        <icon>ing_03215655.jpg</icon>
+        <weight>0.1</weight>
+        <value>1</value>
+        <effect>Obniża się Osobowość</effect>
+        <effect>Tarcza Mrozu</effect>
+        <effect>Wyleczenie ze Zwykłej Choroby</effect>
+        <effect>Wyleczenie z Paraliżu</effect>
+    </ingredient>
+    <ingredient>
+        <name>Wilcza Pszenica</name>
+        <icon>ing_03215703.jpg</icon>
+        <weight>0.1</weight>
+        <value>1</value>
+        <effect>Przywrócenie Zdrowia</effect>
+        <effect>Zwiększa się Siła Woli</effect>
+        <effect>Paraliż</effect>
+        <effect>Obniża się Inteligencja</effect>
+    </ingredient>
+    <ingredient>
+        <name>Włókno Kresh</name>
+        <icon>ing_03215710.jpg</icon>
+        <weight>0.1</weight>
+        <value>1</value>
+        <effect>Przywrócenie: Szczęście</effect>
+        <effect>Zwiększa się Osobowość</effect>
+        <effect>Obniżenie Many</effect>
+        <effect>Obniża się Szybkość</effect>
+    </ingredient>
+    <ingredient>
+        <name>Wosk Kwama</name>
+        <icon>ing_03215717.jpg</icon>
+        <weight>0.1</weight>
+        <p class="out"><b>Wartość: </b>2</p>
+        <effect>Odporność na Trucizny</effect>
+        <effect>Obniżenie Kondycji</effect>
+        <effect>Chodzenie po Wodzie</effect>
+        <effect>Oddychanie w Wodzie</effect>
+    </ingredient>
+    <ingredient>
+        <name>Wrzos</name>
+        <icon>ing_03215725.jpg</icon>
+        <weight>0.1</weight>
+        <value>1</value>
+        <effect>Przywrócenie: Osobowość</effect>
+        <effect>Lekkość</effect>
+        <effect>Obniża się Szybkość</effect>
+        <effect>Obniża się Osobowość</effect>
+    </ingredient>
+    <ingredient>
+        <name>Zarodnia</name>
+        <icon>ing_03215732.jpg</icon>
+        <weight>0.1</weight>
+        <value>1</value>
+        <effect>Obniża się Siła</effect>
+        <effect>Obniżenie Kondycji</effect>
+        <effect>Wykrycie Kluczy</effect>
+        <effect>Paraliż</effect>
+    </ingredient>
+    <ingredient>
+        <name>Zielony Licheń</name>
+        <icon>ing_03215740.jpg</icon>
+        <p class="out"><b>Waga: </b>0.1</p>
+        <value>1</value>
+        <effect>Zwiększa się Osobowość</effect>
+        <effect>Wyleczenie ze Zwykłej Choroby</effect>
+        <effect>Obniża się Siła</effect>
+        <effect>Obniżenie Zdrowia</effect>
+    </ingredient>
+    <ingredient>
+        <name>Złom</name>
+        <icon>ing_03215748.jpg</icon>
+        <p class="out"><b>Waga:</b> 10.0</p>
+        <value>20</value>
+        <effect>Obniżenie Zdrowia</effect>
+        <effect>Tarcza Błyskawic</effect>
+        <effect>Odporność na Porażenia</effect>
+        <effect>Przywrócenie: Inteligencja</effect>
+    </ingredient>
+    <ingredient>
+        <name>Złoty Kanet</name>
+        <icon>ing_03215755.jpg</icon>
+        <weight>0.1</weight>
+        <value>5</value>
+        <effect>Obniżenie Zdrowia</effect>
+        <effect>Brzemię</effect>
+        <effect>Obniża się Szczęście</effect>
+        <effect>Przywrócenie: Siła</effect>
+    </ingredient>
+    <ingredient>
+        <name>Zawiniątko Spaczonego Mięsa</name>
+        <icon>ing_03215804.jpg</icon>
+        <weight>0.0</weight>
+        <value>0</value>
+        <effect>Obniżenie Kondycji</effect>
+        <effect>Obniżenie Zdrowia</effect>
+        <effect>Obniżenie Many</effect>
+    </ingredient>
+    <ingredient>
+        <name>Żywica</name>
+        <icon>ing_03215819.jpg</icon>
+        <weight>0.1</weight>
+        <value>10</value>
+        <effect>Przywrócenie Zdrowia</effect>
+        <effect>Przywrócenie: Szybkość</effect>
+        <effect>Brzemię</effect>
+        <effect>Odporność na Zwykłe Choroby</effect>
+    </ingredient>
+    <ingredient>
+        <name>Żywica Skarabeusza</name>
+        <icon>ing_03215829.jpg</icon>
+        <weight>0.1</weight>
+        <value>50</value>
+        <effect>Obniżenie Kondycji</effect>
+        <effect>Premia do Zdrowia</effect>
+        <effect>Obniża się Osobowość</effect>
+        <effect>Zwiększa się Szybkość</effect>
     </ingredient>
 </ingredients>

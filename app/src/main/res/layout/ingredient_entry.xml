@@ -10,17 +10,17 @@
 
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:id="@+id/ingredientIcon"
             android:src="@mipmap/ic_launcher"
-            android:layout_weight="1" />
+            android:layout_weight="6" />
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="15">
+            android:layout_weight="1">
 
             <TextView
                 android:layout_width="match_parent"
@@ -36,104 +36,82 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:id="@+id/effect1_icon"
+                    android:src="@mipmap/ic_launcher"
+                    android:layout_weight="1" />
 
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Frist Effect"
+                    android:id="@+id/effect1_name"
+                    android:layout_weight="15" />
+            </LinearLayout>
 
-                        <ImageView
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            android:id="@+id/effect1_icon"
-                            android:src="@mipmap/ic_launcher"
-                            android:layout_weight="1" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Frist Effect"
-                            android:id="@+id/effect1_name"
-                            android:layout_weight="15" />
-                    </LinearLayout>
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:id="@+id/effect2_icon"
+                    android:src="@mipmap/ic_launcher"
+                    android:layout_weight="1" />
 
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Second Effect"
+                    android:id="@+id/effect2_name"
+                    android:layout_weight="15" />
+            </LinearLayout>
 
-                        <ImageView
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            android:id="@+id/effect3_icon"
-                            android:src="@mipmap/ic_launcher"
-                            android:layout_weight="1" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Third Effect"
-                            android:id="@+id/effect3_name"
-                            android:layout_weight="15" />
-                    </LinearLayout>
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:id="@+id/effect3_icon"
+                    android:src="@mipmap/ic_launcher"
+                    android:layout_weight="1" />
 
-                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Third Effect"
+                    android:id="@+id/effect3_name"
+                    android:layout_weight="15" />
+            </LinearLayout>
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:id="@+id/effect4_icon"
+                    android:src="@mipmap/ic_launcher"
+                    android:layout_weight="1" />
 
-                        <ImageView
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            android:id="@+id/effect2_icon"
-                            android:src="@mipmap/ic_launcher"
-                            android:layout_weight="1" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Second Effect"
-                            android:id="@+id/effect2_name"
-                            android:layout_weight="15" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
-
-                        <ImageView
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            android:id="@+id/effect4_icon"
-                            android:src="@mipmap/ic_launcher"
-                            android:layout_weight="1" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Forth Effect"
-                            android:id="@+id/effect4_name"
-                            android:layout_weight="15" />
-                    </LinearLayout>
-                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Forth Effect"
+                    android:id="@+id/effect4_name"
+                    android:layout_weight="15" />
             </LinearLayout>
 
         </LinearLayout>

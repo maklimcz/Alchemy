@@ -1,7 +1,10 @@
 package morrowind.alchemy;
 
 import android.content.Context;
+import android.content.res.AssetManager;
+import android.graphics.drawable.Drawable;
 import android.media.Image;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +12,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 /**
@@ -49,20 +55,32 @@ public class MyAdapter extends ArrayAdapter<Ingredient>
 		effect_icons[3] = (ImageView) rowView.findViewById(R.id.effect4_icon);
 		 effect_names[3] = (TextView) rowView.findViewById(R.id.effect4_name);
 
-		ingredientName.setText(ingredients.get(position).ingredientName);
+		ingredientName.setText(ingredients.get(position).getIngredientName());
+
+		AssetManager am = getContext().getResources().getAssets();
+		try {
+			InputStream is = am.open(ingredients.get(position).getIngredientIcon());
+			ingredientIcon.setImageDrawable(Drawable.createFromStream(is, ingredients.get(position).getIngredientIcon()));
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		Log.d("icon", ingredients.get(position).getIngredientIcon());
 
 		for(int i = 0 ; i < 4 ; ++i)
 		{
 			try
 			{
-				effect_names[i].setText(ingredients.get(position).effects.get(i).effectName);
-				effect_icons[i].setImageResource(R.mipmap.ic_launcher);
+				effect_names[i].setText(ingredients.get(position).getEffects().get(i).effectName);
+				if(ingredients.get(position).getEffects().get(i).effectIcon == 0) effect_icons[i].setImageDrawable(null);
+				else effect_icons[i].setImageResource(ingredients.get(position).getEffects().get(i).effectIcon);
 			}
-			catch(IndexOutOfBoundsException ex)
+			catch(Exception ex)
 			{
 				effect_names[i].setText("");
 				effect_icons[i].setImageDrawable(null);
 			}
+
 		}
 		return rowView;
 	}
