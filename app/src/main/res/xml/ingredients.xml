@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ingredients>
+    <ingredient>
+        <name>Solny ryż</name>
+        <effect>Przywrócenie kondycji</effect>
+        <effect>Przywrócenie zdrowia</effect>
+    </ingredient>
+    <ingredient>
+        <name>Purpurowy Corpinus</name>
+        <effect>Chodzenie po wodzie</effect>
+    </ingredient>
+    <ingredient>
+        <name>Chleb</name>
+        <effect>Przywrócenie kondycji</effect>
+    </ingredient>
+    <ingredient>
+        <name>Pies</name>
+        <effect>Raczej niesmaczny</effect>
+    </ingredient>
+    <ingredient>
+        <name>Duże jajko</name>
+        <effect>Przywrócenie kondycji</effect>
+        <effect>Lewitacja</effect>
+        <effect>Premia do szybkości</effect>
+        <effect>Wykrycie kluczy</effect>
+    </ingredient>
+</ingredients>
