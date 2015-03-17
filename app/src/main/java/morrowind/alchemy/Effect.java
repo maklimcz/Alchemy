@@ -1,27 +1,33 @@
 package morrowind.alchemy;
 
-import android.graphics.drawable.Drawable;
-
 /**
  * Created by cj on 2015-03-16.
  */
 public class Effect
 {
-	public String effectName;
-	public int effectIcon;
+	public Effect(){}
 
-	public Effect(String effectName, int effectIcon)
+	public String getEffectName()
+	{
+		return effectName;
+	}
+
+	public void setEffectName(String effectName)
+	{
+		this.effectName = effectName;
+	}
+
+	public String getEffectIcon()
+	{
+		return effectIcon;
+	}
+
+	public void setEffectIcon(String effectIcon)
 	{
 		this.effectIcon = effectIcon;
-		this.effectName = effectName;
 	}
 
-	public Effect(String effectName)
-	{
-		this.effectIcon = 0;
-		this.effectName = effectName;
-	}
+	private String effectName;
+	private String effectIcon;
 
-	public String getEffectName(){return effectName;}
-	public int getEffectIcon(){return effectIcon;}
 }

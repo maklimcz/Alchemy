@@ -23,7 +23,7 @@ public class Ingredient
 		this.ingredientName = ingredientName;
 		this.ingredientIcon = ingredientIcon;
 		this.effects = new ArrayList<>();
-		for(String effect_name : effect_names) this.effects.add(new Effect(effect_name, 0));
+		for(String effect_name : effect_names) this.effects.add(new Effect());
 		this.ingredientWeight = ingredientWeight;
 		this.ingredientValue = ingredientValue;
 	}

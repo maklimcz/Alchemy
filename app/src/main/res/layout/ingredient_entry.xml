@@ -28,7 +28,8 @@
                 android:text="Example Ingredient"
                 android:id="@+id/ingredientName"
                 android:layout_weight="1"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@android:color/background_light"/>
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -38,17 +39,19 @@
 
                 <ImageView
                     android:layout_width="16dp"
-                    android:layout_height="16dp"
+                    android:layout_height="match_parent"
                     android:id="@+id/effect1_icon"
                     android:src="@mipmap/ic_launcher"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_gravity="right"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Frist Effect"
                     android:id="@+id/effect1_name"
-                    android:layout_weight="15" />
+                    android:layout_weight="15"
+                    android:textColor="@android:color/background_light"/>
             </LinearLayout>
 
             <LinearLayout
@@ -59,17 +62,19 @@
 
                 <ImageView
                     android:layout_width="16dp"
-                    android:layout_height="16dp"
+                    android:layout_height="match_parent"
                     android:id="@+id/effect2_icon"
                     android:src="@mipmap/ic_launcher"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_gravity="right"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Second Effect"
                     android:id="@+id/effect2_name"
-                    android:layout_weight="15" />
+                    android:layout_weight="15"
+                    android:textColor="@android:color/background_light"/>
             </LinearLayout>
 
             <LinearLayout
@@ -80,17 +85,19 @@
 
                 <ImageView
                     android:layout_width="16dp"
-                    android:layout_height="16dp"
+                    android:layout_height="match_parent"
                     android:id="@+id/effect3_icon"
                     android:src="@mipmap/ic_launcher"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_gravity="right"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Third Effect"
                     android:id="@+id/effect3_name"
-                    android:layout_weight="15" />
+                    android:layout_weight="15"
+                    android:textColor="@android:color/background_light"/>
             </LinearLayout>
 
             <LinearLayout
@@ -101,17 +108,19 @@
 
                 <ImageView
                     android:layout_width="16dp"
-                    android:layout_height="16dp"
+                    android:layout_height="match_parent"
                     android:id="@+id/effect4_icon"
                     android:src="@mipmap/ic_launcher"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_gravity="right"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Forth Effect"
                     android:id="@+id/effect4_name"
-                    android:layout_weight="15" />
+                    android:layout_weight="15"
+                    android:textColor="@android:color/background_light"/>
             </LinearLayout>
 
         </LinearLayout>

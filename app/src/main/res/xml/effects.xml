@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<effects>
+    <effect>
+        <name>Oślepienie</name>
+        <icon>Blind.jpg</icon>
+    </effect>
+    <effect>
+        <name>Brzemię</name>
+        <icon>Burden.jpg</icon>
+    </effect>
+    <effect>
+        <name>Wyleczenie z Zarazy</name>
+        <icon>Cure_Blight_Disease.jpg</icon>
+    </effect>
+    <effect>
+        <name>Wyleczenie ze Zwykłej Choroby</name>
+        <icon>Cure_Common_Disease.jpg</icon>
+    </effect>
+    <effect>
+        <name>Wyleczenie z Paraliżu</name>
+        <icon>Cure_Paralyzation.jpg</icon>
+    </effect>
+    <effect>
+        <name>Wyleczenie z Zatrucia</name>
+        <icon>Cure_Poison.jpg</icon>
+    </effect>
+    <effect>
+        <name>Damage Fatigue</name>
+        <icon>Damage_Fatigue.jpg</icon>
+    </effect>
+    <effect>
+        <name>Damage Health</name>
+        <icon>Damage_Health.jpg</icon>
+    </effect>
+    <effect>
+        <name>Obniża się Inteligencja</name>
+        <icon>Damage_Intelligence.jpg</icon>
+    </effect>
+    <effect>
+        <name>Damage Magicka</name>
+        <icon>Damage_Magicka.jpg</icon>
+    </effect>
+    <effect>
+        <name>Wykrycie Zwierzęcia</name>
+        <icon>Detect_Animal.jpg</icon>
+    </effect>
+    <effect>
+        <name>Wykrywanie Zaklętych Przedmiotów</name>
+        <icon>Detect_Enchantment.jpg</icon>
+    </effect>
+    <effect>
+        <name>Wykrycie Kluczy</name>
+        <icon>Detect_Key.jpg</icon>
+    </effect>
+    <effect>
+        <name>Rozproszenie</name>
+        <icon>Dispel.jpg</icon>
+    </effect>
+    <effect>
+        <name>Obniża się Przemiana</name>
+        <icon>Drain_Alteration.jpg</icon>
+    </effect>
+    <effect>
+        <name>Obniża się Zwinność</name>
+        <icon>Drain_Attribute.jpg</icon>
+    </effect>
+    <effect>
+        <name>Obniża się Wytrzymałość</name>
+        <icon>Drain_Attribute.jpg</icon>
+    </effect>
+    <effect>
+        <name>Obniżenie Kondycji</name>
+        <icon>Drain_Fatigue.jpg</icon>
+    </effect>
+    <effect>
+        <name>Obniżenie Zdrowia</name>
+        <icon>Drain_Health.jpg</icon>
+    </effect>
+    <effect>
+        <name>Obniża się Inteligencja</name>
+        <icon>Drain_Attribute.jpg</icon>
+    </effect>
+    <effect>
+        <name>Obniża się Szczęście</name>
+        <icon>Drain_Attribute.jpg</icon>
+    </effect>
+    <effect>
+        <name>Obniżenie Many</name>
+        <icon>Drain_Magicka.jpg</icon>
+    </effect>
+    <effect>
+        <name>Obniża się Osobowość</name>
+        <icon>Drain_Attribute.jpg</icon>
+    </effect>
+    <effect>
+        <name>Obniża się Szybkość</name>
+        <icon>Drain_Attribute.jpg</icon>
+    </effect>
+    <effect>
+        <name>Obniża się Siła</name>
+        <icon>Drain_Attribute.jpg</icon>
+    </effect>
+    <effect>
+        <name>Obniża się Siła Woli</name>
+        <icon>Drain_Attribute.jpg</icon>
+    </effect>
+    <effect>
+        <name>Lekkość</name>
+        <icon>Feather.jpg</icon>
+    </effect>
+    <effect>
+        <name>Tarcza Ognia</name>
+        <icon>Fire_Shield.jpg</icon>
+    </effect>
+    <effect>
+        <name>Zwiększa się Zwinność</name>
+        <icon>Fortify_Attribute.jpg</icon>
+    </effect>
+    <effect>
+        <name>Premia do Ataku</name>
+        <icon>Fortify_Attack.jpg</icon>
+    </effect>
+    <effect>
+        <name>Zwiększa się Wytrzymałość</name>
+        <icon>Fortify_Attribute.jpg</icon>
+    </effect>
+    <effect>
+        <name>Premia do Kondycji</name>
+        <icon>Fortify_Fatigue.jpg</icon>
+    </effect>
+    <effect>
+        <name>Premia do Zdrowia</name>
+        <icon>Fortify_Health.jpg</icon>
+    </effect>
+    <effect>
+        <name>Zwiększa się Inteligencja</name>
+        <icon>Fortify_Attribute.jpg</icon>
+    </effect>
+    <effect>
+        <name>Zwiększa się Szczęście</name>
+        <icon>Fortify_Attribute.jpg</icon>
+    </effect>
+    <effect>
+        <name>Premia do Many</name>
+        <icon>Fortify_Magicka.jpg</icon>
+    </effect>
+    <effect>
+        <name>Premia do Many</name>
+        <icon>Fortify_Maximum_Magicka.jpg</icon>
+    </effect>
+    <effect>
+        <name>Zwiększa się Osobowość</name>
+        <icon>Fortify_Attribute.jpg</icon>
+    </effect>
+    <effect>
+        <name>Zwiększa się Szybkość</name>
+        <icon>Fortify_Attribute.jpg</icon>
+    </effect>
+    <effect>
+        <name>Zwiększa się Siła</name>
+        <icon>Fortify_Attribute.jpg</icon>
+    </effect>
+    <effect>
+        <name>Zwiększa się Siła Woli</name>
+        <icon>Fortify_Attribute.jpg</icon>
+    </effect>
+    <effect>
+        <name>Frost Damage</name>
+        <icon>Frost_Damage.jpg</icon>
+    </effect>
+    <effect>
+        <name>Tarcza Mrozu</name>
+        <icon>Frost_Shield.jpg</icon>
+    </effect>
+    <effect>
+        <name>Niewidzialność</name>
+        <icon>Invisibility.jpg</icon>
+    </effect>
+    <effect>
+        <name>Lewitacja</name>
+        <icon>Levitate.jpg</icon>
+    </effect>
+    <effect>
+        <name>Światło</name>
+        <icon>Light.jpg</icon>
+    </effect>
+    <effect>
+        <name>Tarcza Błyskawic</name>
+        <icon>Lightning_Shield.jpg</icon>
+    </effect>
+    <effect>
+        <name>Kocie Oko</name>
+        <icon>Night_Eye.jpg</icon>
+    </effect>
+    <effect>
+        <name>Paraliż</name>
+        <icon>Paralyze.jpg</icon>
+    </effect>
+    <effect>
+        <name>Trucizna</name>
+        <icon>Poison.jpg</icon>
+    </effect>
+    <effect>
+        <name>Przeniesienie</name>
+        <icon>Recall.jpg</icon>
+    </effect>
+    <effect>
+        <name>Odbicie</name>
+        <icon>Reflect.jpg</icon>
+    </effect>
+    <effect>
+        <name>Odporność na Zwykłe Choroby</name>
+        <icon>Resist_Common_Disease.jpg</icon>
+    </effect>
+    <effect>
+        <name>Odporność na Ogień</name>
+        <icon>Resist_Fire.jpg</icon>
+    </effect>
+    <effect>
+        <name>Odporność na Mróz</name>
+        <icon>Resist_Frost.jpg</icon>
+    </effect>
+    <effect>
+        <name>Odporność na Magię</name>
+        <icon>Resist_Magicka.jpg</icon>
+    </effect>
+    <effect>
+        <name>Odporność na Paraliż</name>
+        <icon>Resist_Paralysis.jpg</icon>
+    </effect>
+    <effect>
+        <name>Odporność na Trucizny</name>
+        <icon>Resist_Poison.jpg</icon>
+    </effect>
+    <effect>
+        <name>Odporność na Porażenia</name>
+        <icon>Resist_Shock.jpg</icon>
+    </effect>
+    <effect>
+        <name>Przywrócenie: Zwinność</name>
+        <icon>Restore_Attribute.jpg</icon>
+    </effect>
+    <effect>
+        <name>Przywrócenie: Wytrzymałość</name>
+        <icon>Restore_Attribute.jpg</icon>
+    </effect>
+    <effect>
+        <name>Przywrócenie Kondycji</name>
+        <icon>Restore_Fatigue.jpg</icon>
+    </effect>
+    <effect>
+        <name>Przywrócenie Zdrowia</name>
+        <icon>Restore_Health.jpg</icon>
+    </effect>
+    <effect>
+        <name>Przywrócenie: Inteligencja</name>
+        <icon>Restore_Attribute.jpg</icon>
+    </effect>
+    <effect>
+        <name>Przywrócenie: Szczęście</name>
+        <icon>Restore_Attribute.jpg</icon>
+    </effect>
+    <effect>
+        <name>Przywrócenie Many</name>
+        <icon>Restore_Magicka.jpg</icon>
+    </effect>
+    <effect>
+        <name>Przywrócenie: Osobowość</name>
+        <icon>Restore_Attribute.jpg</icon>
+    </effect>
+    <effect>
+        <name>Przywrócenie: Szybkość</name>
+        <icon>Restore_Attribute.jpg</icon>
+    </effect>
+    <effect>
+        <name>Przywrócenie: Siła</name>
+        <icon>Restore_Attribute.jpg</icon>
+    </effect>
+    <effect>
+        <name>Przywrócenie: Siła Woli</name>
+        <icon>Restore_Attribute.jpg</icon>
+    </effect>
+    <effect>
+        <name>Absorpcja Magii</name>
+        <icon>Spell_Absorption.jpg</icon>
+    </effect>
+    <effect>
+        <name>Ryba w Wodzie</name>
+        <icon>Swift_Swim.jpg</icon>
+    </effect>
+    <effect>
+        <name>Telekineza</name>
+        <icon>Telekinesis.jpg</icon>
+    </effect>
+    <effect>
+        <name>Wampiryzm</name>
+        <icon>Vampirism.jpg</icon>
+    </effect>
+    <effect>
+        <name>Oddychanie w Wodzie</name>
+        <icon>Water_Breathing.jpg</icon>
+    </effect>
+    <effect>
+        <name>Chodzenie po Wodzie</name>
+        <icon>Water_Walking.jpg</icon>
+    </effect>
+    <effect>
+        <name>Podatność na Ogień</name>
+        <icon>Weakness_to_Fire.jpg</icon>
+    </effect>
+    <effect>
+        <name>Podatność na Trucizny</name>
+        <icon>Weakness_to_Poison.jpg</icon>
+    </effect>
+</effects>

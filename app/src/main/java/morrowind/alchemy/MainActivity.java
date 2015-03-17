@@ -25,6 +25,7 @@ public class MainActivity extends ActionBarActivity
 
 	private ListView listView;
 	private List<Ingredient> ingredients;
+	private List<Effect> effects;
 	private MyAdapter ingredientsAdapter ;
 
 	@Override
@@ -35,10 +36,12 @@ public class MainActivity extends ActionBarActivity
 
 		listView = (ListView) findViewById(R.id.listView);
 
-		MyXMLParser myXMLParser = new MyXMLParser(getResources().getXml(R.xml.ingredients));
+		IngredientsParser ingredientsParser = new IngredientsParser(getResources().getXml(R.xml.ingredients));
+		EffectsParser effectsParser = new EffectsParser(getResources().getXml(R.xml.effects));
 		try
 		{
-			ingredients = myXMLParser.parse();
+			ingredients = ingredientsParser.parse();
+			effects = effectsParser.parse();
 		} catch (XmlPullParserException e)
 		{
 			e.printStackTrace();
@@ -59,6 +62,16 @@ public class MainActivity extends ActionBarActivity
 		}
 		*/
 
+		for(Ingredient ingredient : ingredients)
+		{
+			for(Effect effect : ingredient.getEffects())
+			{
+				for(Effect effect1 : effects)
+				{
+					if(effect.getEffectName().equals(effect1.getEffectName()))effect.setEffectIcon(effect1.getEffectIcon());
+				}
+			}
+		}
 
 		ingredientsAdapter = new MyAdapter(this, ingredients);
 		listView.setAdapter(ingredientsAdapter);

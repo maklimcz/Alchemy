@@ -65,18 +65,17 @@ public class MyAdapter extends ArrayAdapter<Ingredient>
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		Log.d("icon", ingredients.get(position).getIngredientIcon());
-
 		for(int i = 0 ; i < 4 ; ++i)
 		{
 			try
 			{
-				effect_names[i].setText(ingredients.get(position).getEffects().get(i).effectName);
-				if(ingredients.get(position).getEffects().get(i).effectIcon == 0) effect_icons[i].setImageDrawable(null);
-				else effect_icons[i].setImageResource(ingredients.get(position).getEffects().get(i).effectIcon);
+				effect_names[i].setText(ingredients.get(position).getEffects().get(i).getEffectName());
+				InputStream is = am.open(ingredients.get(position).getEffects().get(i).getEffectIcon());
+				effect_icons[i].setImageDrawable(Drawable.createFromStream(is, ingredients.get(position).getEffects().get(i).getEffectIcon()));
 			}
 			catch(Exception ex)
 			{
+				Log.d("exception", ex.getMessage());
 				effect_names[i].setText("");
 				effect_icons[i].setImageDrawable(null);
 			}
