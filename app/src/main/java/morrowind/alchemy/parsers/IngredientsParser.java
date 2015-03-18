@@ -1,46 +1,46 @@
-package morrowind.alchemy;
-
-import android.util.Log;
+package morrowind.alchemy.parsers;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
+
+import morrowind.alchemy.model.Effect;
+import morrowind.alchemy.model.Ingredient;
 
 /**
  * Created by cj on 2015-03-15.
  */
-public class EffectsParser
+public class IngredientsParser
 {
 	// We don't use namespaces
 	private static final String ns = null;
 	private XmlPullParser xpp;
 
-	public EffectsParser(XmlPullParser xpp)
+	public IngredientsParser(XmlPullParser xpp)
 	{
 		super();
 		this.xpp =  xpp;
 	}
 
-	public List parse() throws XmlPullParserException, IOException
+	public ArrayList parse() throws XmlPullParserException, IOException
 	{
 		try
 		{
 			xpp.next();
 			xpp.next();
-			return readEffects(xpp);
+			return readIngredients(xpp);
 		} finally
 		{
 
 		}
 	}
 
-	private List readEffects(XmlPullParser parser) throws XmlPullParserException, IOException
+	private ArrayList readIngredients(XmlPullParser parser) throws XmlPullParserException, IOException
 	{
-		List effects = new ArrayList();
-		parser.require(XmlPullParser.START_TAG, ns, "effects");
+		ArrayList ingredients = new ArrayList();
+		parser.require(XmlPullParser.START_TAG, ns, "ingredients");
 		while (parser.next() != XmlPullParser.END_TAG)
 		{
 			if (parser.getEventType() != XmlPullParser.START_TAG)
@@ -49,36 +49,38 @@ public class EffectsParser
 			}
 			String name = parser.getName();
 			// Starts by looking for the entry tag
-			if (name.equals("effect"))
+			if (name.equals("ingredient"))
 			{
-				effects.add(readEffect(parser));
+				ingredients.add(readIngredient(parser));
 			} else
 			{
 				skip(parser);
 			}
 		}
-		return effects;
+		return ingredients;
 	}
 
 
 
 	// Parses the contents of an entry. If it encounters a title, summary, or link tag, hands them off
 // to their respective "read" methods for processing. Otherwise, skips the tag.
-	private Effect readEffect(XmlPullParser parser) throws XmlPullParserException, IOException
+	private Ingredient readIngredient(XmlPullParser parser) throws XmlPullParserException, IOException
 	{
-		parser.require(XmlPullParser.START_TAG, ns, "effect");
+		parser.require(XmlPullParser.START_TAG, ns, "ingredient");
 		String name = null;
-		Effect effect = new Effect();
+		Ingredient ingredient = new Ingredient();
 		while (parser.next() != XmlPullParser.END_TAG)
 		{
 			if (parser.getEventType() != XmlPullParser.START_TAG)	continue;
 			String tag = parser.getName();
-			if (tag.equals("name"))effect.setEffectName(readName(parser));
-			else if (tag.equals("icon"))effect.setEffectIcon(readIcon(parser));
+			if (tag.equals("name"))ingredient.setIngredientName(readName(parser));
+			else if (tag.equals("icon"))ingredient.setIngredientIcon(readIcon(parser));
+			else if (tag.equals("weight"))ingredient.setIngredientWeight(readWeight(parser));
+			else if (tag.equals("value"))ingredient.setIngredientValue(readValue(parser));
+			else if (tag.equals("effect"))ingredient.addEffect(readEffect(parser));
 			else skip(parser);
 		}
-		//Log.d("effect", "parser: " + effect.getEffectName() + " " + effect.getEffectIcon());
-		return effect;
+		return ingredient;
 	}
 
 	private String readName(XmlPullParser parser) throws IOException, XmlPullParserException
@@ -95,6 +97,31 @@ public class EffectsParser
 		String content = readText(parser);
 		parser.require(XmlPullParser.END_TAG, ns, "icon");
 		return content;
+	}
+
+	private float readWeight(XmlPullParser parser) throws IOException, XmlPullParserException
+	{
+		parser.require(XmlPullParser.START_TAG, ns, "weight");
+		String content = readText(parser);
+		parser.require(XmlPullParser.END_TAG, ns, "weight");
+		return Float.parseFloat(content);
+	}
+
+	private int readValue(XmlPullParser parser) throws IOException, XmlPullParserException
+	{
+		parser.require(XmlPullParser.START_TAG, ns, "value");
+		String content = readText(parser);
+		parser.require(XmlPullParser.END_TAG, ns, "value");
+		return Integer.parseInt(content);
+	}
+	private Effect readEffect(XmlPullParser parser) throws IOException, XmlPullParserException
+	{
+		parser.require(XmlPullParser.START_TAG, ns, "effect");
+		String content = readText(parser);
+		parser.require(XmlPullParser.END_TAG, ns, "effect");
+		Effect effect = new Effect();
+		effect.setEffectName(content);
+		return effect;
 	}
 
 	// For the tags title and summary, extracts their text values.

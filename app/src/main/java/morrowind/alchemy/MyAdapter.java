@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.text.Spannable;
 import android.text.style.BackgroundColorSpan;
 import android.util.Log;
@@ -17,14 +16,15 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import morrowind.alchemy.model.Effect;
+import morrowind.alchemy.model.Ingredient;
 
 /**
  * Created by cj on 2015-03-16.
@@ -65,15 +65,13 @@ public class MyAdapter extends ArrayAdapter<Ingredient> implements Filterable
 			return rowView;
 		}
 		String s = filteredIngredients.get(position).getIngredientName();
-		if(!toggleButton.isChecked() && search != null && !search.equals("")) // by ingredient
+		if (toggleButton!=null && !toggleButton.isChecked() && search != null && !search.equals("")) // by ingredient
 		{
 			Spannable spanText = Spannable.Factory.getInstance().newSpannable(s);
-			try{
-			spanText.setSpan(new BackgroundColorSpan(0x80FFFF00), s.toLowerCase().indexOf(search), s.toLowerCase().indexOf(search) + search.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);}
-			catch (IndexOutOfBoundsException ex ){}
+			if (s.toLowerCase().contains(search))
+				spanText.setSpan(new BackgroundColorSpan(0x80FFFF00), s.toLowerCase().indexOf(search), s.toLowerCase().indexOf(search) + search.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 			ingredientName.setText(spanText);
-		}
-		else ingredientName.setText(s);
+		} else ingredientName.setText(s);
 
 		AssetManager am = getContext().getResources().getAssets();
 		try
@@ -104,20 +102,13 @@ public class MyAdapter extends ArrayAdapter<Ingredient> implements Filterable
 
 			TextView row_text = new TextView(context);
 			s = effect.getEffectName();
-			if(toggleButton.isChecked() && search != null && !search.equals("")) // by effect
+			if (toggleButton!= null &&  toggleButton.isChecked() && search != null && !search.equals("")) // by effect
 			{
 				Spannable spanText = Spannable.Factory.getInstance().newSpannable(s);
-				try
-				{
+				if (s.toLowerCase().contains(search))
 					spanText.setSpan(new BackgroundColorSpan(0x80FFFF00), s.toLowerCase().indexOf(search), s.toLowerCase().indexOf(search) + search.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-				}
-				catch (IndexOutOfBoundsException ex)
-				{
-
-				}
 				row_text.setText(spanText);
-			}
-			else row_text.setText(s);
+			} else row_text.setText(s);
 			row_text.setTextColor(Color.WHITE);
 			row.addView(row_icon);
 			row.addView(row_text);
@@ -136,34 +127,35 @@ public class MyAdapter extends ArrayAdapter<Ingredient> implements Filterable
 	private class IngredientFilter extends Filter
 	{
 		private ArrayAdapter<Ingredient> arrayAdapter;
+
 		public IngredientFilter(ArrayAdapter<Ingredient> arrayAdapter)
 		{
 			super();
 			this.arrayAdapter = arrayAdapter;
 		}
+
 		@Override
 		protected FilterResults performFiltering(CharSequence constraint)
 		{
 			search = constraint.toString();
 			FilterResults result = new FilterResults();
 			ArrayList<Ingredient> filteredList = new ArrayList<Ingredient>();
-			if (constraint == null || constraint.length() == 0)
+			if (constraint.length() == 0)
 			{
 				filteredList.addAll(allIngredients);
 			} else
 			{
-				if(toggleButton.isChecked()) //by effect
+				if (toggleButton!= null && toggleButton.isChecked()) //by effect
 				{
 					for (Ingredient ingredient : allIngredients)
 					{
-						for(Effect effect : ingredient.getEffects())
+						for (Effect effect : ingredient.getEffects())
 						{
-							if (effect.getEffectName().toLowerCase().contains(search))
+							if (effect.getEffectName().toLowerCase().contains(search) && !filteredList.contains(ingredient))
 								filteredList.add(ingredient);
 						}
 					}
-				}
-				else //by ingredient
+				} else //by ingredient
 				{
 					for (Ingredient ingredient : allIngredients)
 					{
@@ -188,7 +180,8 @@ public class MyAdapter extends ArrayAdapter<Ingredient> implements Filterable
 			filteredIngredients = (ArrayList<Ingredient>) results.values;
 
 			arrayAdapter.clear();
-			for(Ingredient ingredient : (ArrayList<Ingredient>) results.values) arrayAdapter.add(ingredient);
+			for (Ingredient ingredient : (ArrayList<Ingredient>) results.values)
+				arrayAdapter.add(ingredient);
 			notifyDataSetChanged();
 			Log.d("FILTER", "listView contains " + arrayAdapter.getCount() + " elements.");
 		}

@@ -16,6 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ShowBackpack"
+            android:label="@string/title_activity_show_backpack" >
+        </activity>
+        <activity
+            android:name=".PotionBrewery"
+            android:label="@string/title_activity_potion_brewery" >
+        </activity>
     </application>
 
 </manifest>

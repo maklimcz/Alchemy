@@ -1,12 +1,13 @@
-package morrowind.alchemy;
+package morrowind.alchemy.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by cj on 2015-03-16.
  */
-public class Ingredient
+public class Ingredient implements Serializable
 {
 	private int ingredientID;
 	private String ingredientName;

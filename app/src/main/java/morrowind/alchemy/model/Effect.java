@@ -1,9 +1,11 @@
-package morrowind.alchemy;
+package morrowind.alchemy.model;
+
+import java.io.Serializable;
 
 /**
  * Created by cj on 2015-03-16.
  */
-public class Effect
+public class Effect implements Serializable
 {
 	public Effect(){}
 
@@ -30,4 +32,10 @@ public class Effect
 	private String effectName;
 	private String effectIcon;
 
+	@Override
+	public boolean equals(Object o)
+	{
+		if(o instanceof Effect) return effectName.equals(((Effect) o).getEffectName());
+		else return false;
+	}
 }

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <item android:id="@+id/addToBackpack"
+              android:title="Dodaj do plecaka" />
+        <item android:id="@+id/showBackpack"
+          android:title="Pokaż plecak" />
+
+</menu>
