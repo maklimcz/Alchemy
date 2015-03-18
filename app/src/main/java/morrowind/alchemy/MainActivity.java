@@ -2,11 +2,14 @@ package morrowind.alchemy;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -23,6 +26,7 @@ import java.util.List;
 public class MainActivity extends ActionBarActivity
 {
 
+	private EditText editText;
 	private ListView listView;
 	private List<Ingredient> ingredients;
 	private List<Effect> effects;
@@ -35,6 +39,7 @@ public class MainActivity extends ActionBarActivity
 		setContentView(R.layout.activity_main);
 
 		listView = (ListView) findViewById(R.id.listView);
+		editText = (EditText) findViewById(R.id.editText);
 
 		IngredientsParser ingredientsParser = new IngredientsParser(getResources().getXml(R.xml.ingredients));
 		EffectsParser effectsParser = new EffectsParser(getResources().getXml(R.xml.effects));
@@ -49,18 +54,6 @@ public class MainActivity extends ActionBarActivity
 		{
 			e.printStackTrace();
 		}
-		/*
-		AlchemyDatabaseHandler alchemyDatabaseHandler = new AlchemyDatabaseHandler(this);
-		//alchemyDatabaseHandler.addIngredient(new Ingredient("Kot",R.drawable.nyan , new String[] {"Miauu"}));
-		Log.d("Reading: ", "Reading all ingredients...");
-		ingredients = alchemyDatabaseHandler.getIngredients();
-		for (Ingredient ingredient : ingredients)
-		{
-			String log = "Name: " + ingredient.getIngredientName() + " icon: " + ingredient.getIngredientIcon() + " effects: ";
-			for(Effect e : ingredient.getEffects()) log += e.getEffectName() + ", ";
-			Log.d("Ingredient: ", log);
-		}
-		*/
 
 		for(Ingredient ingredient : ingredients)
 		{
@@ -75,6 +68,20 @@ public class MainActivity extends ActionBarActivity
 
 		ingredientsAdapter = new MyAdapter(this, ingredients);
 		listView.setAdapter(ingredientsAdapter);
+		editText.addTextChangedListener(new TextWatcher()
+		{
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count)
+			{
+				ingredientsAdapter.getFilter().filter(s.toString());
+			}
+
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count, int after){}
+
+			@Override
+			public void afterTextChanged(Editable s){}
+		});
 	}
 
 	@Override
