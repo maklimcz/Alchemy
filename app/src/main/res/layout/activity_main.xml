@@ -6,14 +6,33 @@
               android:orientation="vertical">
 
 
-    <EditText
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:hint="Search..."
-        android:textColor="#ffdfdfdf"
-        android:textColorHint="#ffbfbfbf"
-        android:singleLine="true"/>
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText"
+            android:hint="Search..."
+            android:textColor="#ffdfdfdf"
+            android:textColorHint="#ffbfbfbf"
+            android:singleLine="true"
+            android:layout_weight="15"/>
+
+        <ToggleButton
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="New ToggleButton"
+            android:id="@+id/toggleButton"
+            android:layout_weight="1"
+            android:textOn="by effect"
+            android:textOff="by ingredient"
+            android:checked="false"
+            android:onClick="toggleChanged"/>
+
+    </LinearLayout>
 
     <ListView
         android:layout_width="fill_parent"

@@ -5,6 +5,8 @@ import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
+import android.text.Spannable;
+import android.text.style.BackgroundColorSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import java.io.File;
 import java.io.IOException;
@@ -31,22 +34,26 @@ public class MyAdapter extends ArrayAdapter<Ingredient> implements Filterable
 	private Context context;
 	private List<Ingredient> allIngredients;
 	private List<Ingredient> filteredIngredients;
-	private Filter ingredientFilter = new MyAdapter.IngredientFilter();
+	private Filter ingredientFilter;
+	private ToggleButton toggleButton;
+	private String search = "";
 
-	public MyAdapter(Context context, List<Ingredient> ingredients)
+	public MyAdapter(Context context, List<Ingredient> ingredients, ToggleButton toggleButton)
 	{
 		super(context, R.layout.ingredient_entry, ingredients);
 		this.context = context;
-		this.allIngredients = ingredients;
-		this.filteredIngredients = new ArrayList<Ingredient>();
-		this.filteredIngredients.addAll(allIngredients);
-
+		this.allIngredients = new ArrayList<>();
+		this.allIngredients.addAll(ingredients);
+		this.filteredIngredients = ingredients;
+		ingredientFilter = new MyAdapter.IngredientFilter(this);
+		this.toggleButton = toggleButton;
 	}
+
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent)
 	{
-
+		search = search.toLowerCase();
 		LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View rowView = inflater.inflate(R.layout.ingredient_entry, parent, false);
 		ImageView ingredientIcon = (ImageView) rowView.findViewById(R.id.ingredientIcon);
@@ -57,8 +64,16 @@ public class MyAdapter extends ArrayAdapter<Ingredient> implements Filterable
 			ingredientName.setText(String.valueOf(position));
 			return rowView;
 		}
-
-		ingredientName.setText(filteredIngredients.get(position).getIngredientName());
+		String s = filteredIngredients.get(position).getIngredientName();
+		if(!toggleButton.isChecked() && search != null && !search.equals("")) // by ingredient
+		{
+			Spannable spanText = Spannable.Factory.getInstance().newSpannable(s);
+			try{
+			spanText.setSpan(new BackgroundColorSpan(0x80FFFF00), s.toLowerCase().indexOf(search), s.toLowerCase().indexOf(search) + search.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);}
+			catch (IndexOutOfBoundsException ex ){}
+			ingredientName.setText(spanText);
+		}
+		else ingredientName.setText(s);
 
 		AssetManager am = getContext().getResources().getAssets();
 		try
@@ -88,7 +103,21 @@ public class MyAdapter extends ArrayAdapter<Ingredient> implements Filterable
 			}
 
 			TextView row_text = new TextView(context);
-			row_text.setText(effect.getEffectName());
+			s = effect.getEffectName();
+			if(toggleButton.isChecked() && search != null && !search.equals("")) // by effect
+			{
+				Spannable spanText = Spannable.Factory.getInstance().newSpannable(s);
+				try
+				{
+					spanText.setSpan(new BackgroundColorSpan(0x80FFFF00), s.toLowerCase().indexOf(search), s.toLowerCase().indexOf(search) + search.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+				}
+				catch (IndexOutOfBoundsException ex)
+				{
+
+				}
+				row_text.setText(spanText);
+			}
+			else row_text.setText(s);
 			row_text.setTextColor(Color.WHITE);
 			row.addView(row_icon);
 			row.addView(row_text);
@@ -106,9 +135,16 @@ public class MyAdapter extends ArrayAdapter<Ingredient> implements Filterable
 
 	private class IngredientFilter extends Filter
 	{
+		private ArrayAdapter<Ingredient> arrayAdapter;
+		public IngredientFilter(ArrayAdapter<Ingredient> arrayAdapter)
+		{
+			super();
+			this.arrayAdapter = arrayAdapter;
+		}
 		@Override
 		protected FilterResults performFiltering(CharSequence constraint)
 		{
+			search = constraint.toString();
 			FilterResults result = new FilterResults();
 			ArrayList<Ingredient> filteredList = new ArrayList<Ingredient>();
 			if (constraint == null || constraint.length() == 0)
@@ -116,10 +152,24 @@ public class MyAdapter extends ArrayAdapter<Ingredient> implements Filterable
 				filteredList.addAll(allIngredients);
 			} else
 			{
-				for (Ingredient ingredient : allIngredients)
+				if(toggleButton.isChecked()) //by effect
 				{
-					if (ingredient.getIngredientName().toLowerCase().startsWith(constraint.toString()))
-						filteredList.add(ingredient);
+					for (Ingredient ingredient : allIngredients)
+					{
+						for(Effect effect : ingredient.getEffects())
+						{
+							if (effect.getEffectName().toLowerCase().contains(search))
+								filteredList.add(ingredient);
+						}
+					}
+				}
+				else //by ingredient
+				{
+					for (Ingredient ingredient : allIngredients)
+					{
+						if (ingredient.getIngredientName().toLowerCase().contains(search))
+							filteredList.add(ingredient);
+					}
 				}
 
 			}
@@ -133,10 +183,14 @@ public class MyAdapter extends ArrayAdapter<Ingredient> implements Filterable
 		@Override
 		protected void publishResults(CharSequence constraint, FilterResults results)
 		{
-			filteredIngredients.clear();
-			filteredIngredients.addAll((ArrayList<Ingredient>) results.values);
 			Log.d("FILTER", "filteredIngredients counts " + filteredIngredients.size() + " ingredients.");
+			Log.d("FILTER", "allIngredients counts " + allIngredients.size() + " ingredients.");
+			filteredIngredients = (ArrayList<Ingredient>) results.values;
+
+			arrayAdapter.clear();
+			for(Ingredient ingredient : (ArrayList<Ingredient>) results.values) arrayAdapter.add(ingredient);
 			notifyDataSetChanged();
+			Log.d("FILTER", "listView contains " + arrayAdapter.getCount() + " elements.");
 		}
 
 	}

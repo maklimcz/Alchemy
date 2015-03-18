@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -28,6 +29,7 @@ public class MainActivity extends ActionBarActivity
 
 	private EditText editText;
 	private ListView listView;
+	private ToggleButton toggleButton;
 	private List<Ingredient> ingredients;
 	private List<Effect> effects;
 	private MyAdapter ingredientsAdapter ;
@@ -40,6 +42,7 @@ public class MainActivity extends ActionBarActivity
 
 		listView = (ListView) findViewById(R.id.listView);
 		editText = (EditText) findViewById(R.id.editText);
+		toggleButton = (ToggleButton) findViewById(R.id.toggleButton);
 
 		IngredientsParser ingredientsParser = new IngredientsParser(getResources().getXml(R.xml.ingredients));
 		EffectsParser effectsParser = new EffectsParser(getResources().getXml(R.xml.effects));
@@ -66,7 +69,7 @@ public class MainActivity extends ActionBarActivity
 			}
 		}
 
-		ingredientsAdapter = new MyAdapter(this, ingredients);
+		ingredientsAdapter = new MyAdapter(this, ingredients, toggleButton);
 		listView.setAdapter(ingredientsAdapter);
 		editText.addTextChangedListener(new TextWatcher()
 		{
@@ -77,10 +80,14 @@ public class MainActivity extends ActionBarActivity
 			}
 
 			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count, int after){}
+			public void beforeTextChanged(CharSequence s, int start, int count, int after)
+			{
+			}
 
 			@Override
-			public void afterTextChanged(Editable s){}
+			public void afterTextChanged(Editable s)
+			{
+			}
 		});
 	}
 
@@ -107,5 +114,10 @@ public class MainActivity extends ActionBarActivity
 		}
 
 		return super.onOptionsItemSelected(item);
+	}
+
+	public void toggleChanged(View view)
+	{
+		ingredientsAdapter.getFilter().filter(editText.getText());
 	}
 }
