@@ -35,7 +35,6 @@ public class MainActivity extends ActionBarActivity
 	private ListView listView;
 	private ToggleButton toggleButton;
 	private ArrayList<Ingredient> ingredients;
-	private ArrayList<Ingredient> backpack;
 	private ArrayList<Effect> effects;
 	private MyAdapter ingredientsAdapter;
 
@@ -56,7 +55,6 @@ public class MainActivity extends ActionBarActivity
 		{
 			ingredients = ingredientsParser.parse();
 			effects = effectsParser.parse();
-			backpack = new ArrayList<Ingredient>();
 		} catch (XmlPullParserException e)
 		{
 			e.printStackTrace();
@@ -144,13 +142,13 @@ public class MainActivity extends ActionBarActivity
 			case R.id.addToBackpack:
 				int pos = ((AdapterView.AdapterContextMenuInfo) item.getMenuInfo()).position;
 				Ingredient ingredient = ((Ingredient)listView.getAdapter().getItem(pos));
-				if(backpack.contains(ingredient))
+				if(Backpack.contains(ingredient))
 				{
 					Toast.makeText(this, ingredient.getIngredientName() + " juz jest w plecaku.", Toast.LENGTH_SHORT).show();
 				}
 					else
 				{
-					backpack.add(ingredient);
+					Backpack.add(ingredient);
 					Toast.makeText(this, ingredient.getIngredientName() + " dodano do plecaka.", Toast.LENGTH_SHORT).show();
 				}
 				return true;
@@ -165,7 +163,6 @@ public class MainActivity extends ActionBarActivity
 	public void showBackpack(View view)
 	{
 		Intent intent = new Intent(this, ShowBackpack.class);
-		intent.putExtra("backpack", new Backpack(backpack));
 		startActivity(intent);
 	}
 }

@@ -18,8 +18,6 @@ import morrowind.alchemy.model.Potion;
 
 public class PotionBrewery extends ActionBarActivity
 {
-	
-	private ArrayList<Ingredient> backpack;
 	private ListView listView;
 	private ArrayList<Potion> potions;
 	private PotionsAdapter potionsAdapter;
@@ -28,11 +26,6 @@ public class PotionBrewery extends ActionBarActivity
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-
-		if (savedInstanceState != null) {
-			backpack = ((Backpack)savedInstanceState.getSerializable("backpack")).getBackpack();
-		}
-		else backpack = (ArrayList<Ingredient>) ( (Backpack) getIntent().getSerializableExtra("backpack") ).getBackpack();
 		setContentView(R.layout.activity_potion_brewery);
 
 
@@ -40,7 +33,7 @@ public class PotionBrewery extends ActionBarActivity
 
 		registerForContextMenu(listView);
 
-		potions = brewPotions(backpack);
+		potions = brewPotions(Backpack.getBackpack());
 		Toast.makeText(this, "Brewed " + potions.size() + " potions.", Toast.LENGTH_SHORT).show();
 		potionsAdapter = new PotionsAdapter(this, potions);
 		listView.setAdapter(potionsAdapter);
@@ -69,8 +62,11 @@ public class PotionBrewery extends ActionBarActivity
 	{
 		ArrayList<Potion> potions = new ArrayList<Potion>();
 		ArrayList<Potion> result = new ArrayList<Potion>();
+
+
 		for(Ingredient ingredient : ingredients)
 		{
+
 			for(Effect effect : ingredient.getEffects())
 			{
 				if(potionsWithThatEffect(potions, effect).isEmpty())
@@ -95,6 +91,16 @@ public class PotionBrewery extends ActionBarActivity
 		return result;
 	}
 
+	private ArrayList<Potion> potionsWithThatEffects(ArrayList<Potion> potions, ArrayList<Effect> effects)
+	{
+		ArrayList<Potion> potionsWithThatEffects = new ArrayList<Potion>();
+		for(Potion potion : potions)
+		{
+			if(potion.getEffects().containsAll(effects)) potionsWithThatEffects.add(potion);
+		}
+		return potionsWithThatEffects;
+	}
+
 	private ArrayList<Potion> potionsWithThatEffect(ArrayList<Potion> potions, Effect effect)
 	{
 		ArrayList<Potion> potionsWithThatEffect = new ArrayList<Potion>();
@@ -103,12 +109,5 @@ public class PotionBrewery extends ActionBarActivity
 			if(potion.getEffects().contains(effect)) potionsWithThatEffect.add(potion);
 		}
 		return potionsWithThatEffect;
-	}
-
-	@Override
-	public void onSaveInstanceState(Bundle savedInstanceState) {
-
-		savedInstanceState.putSerializable("backpack", new Backpack(backpack));
-		super.onSaveInstanceState(savedInstanceState);
 	}
 }

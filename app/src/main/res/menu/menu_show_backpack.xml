@@ -2,6 +2,12 @@
       xmlns:app="http://schemas.android.com/apk/res-auto"
       xmlns:tools="http://schemas.android.com/tools"
       tools:context="morrowind.alchemy.ShowBackpack">
+
+      <item android:id="@+id/clearBackpackMenuItem"
+            android:title="Clear backpack"
+            android:orderInCategory="100"
+            app:showAsAction="never"/>
+
     <item android:id="@+id/brewPotionsMenuItem"
           android:title="Brew potions"
           android:orderInCategory="100"

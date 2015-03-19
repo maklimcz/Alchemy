@@ -94,4 +94,17 @@ public class Ingredient implements Serializable
 		if(this.effects == null) this.effects = new ArrayList<Effect>();
 		this.effects.add(effect);
 	}
+
+	public static ArrayList<Effect> commonEffects(Ingredient i1, Ingredient i2)
+	{
+		ArrayList<Effect> commonEffects = new ArrayList<Effect>();
+		for(Effect e1 : i1.getEffects())
+		{
+			for(Effect e2 : i2.getEffects())
+			{
+				if(e1.equals(e2) && !commonEffects.contains(e1)) commonEffects.add(e1);
+			}
+		}
+		return commonEffects;
+	}
 }

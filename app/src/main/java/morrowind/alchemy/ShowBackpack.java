@@ -20,7 +20,6 @@ import morrowind.alchemy.model.Ingredient;
 
 public class ShowBackpack extends ActionBarActivity
 {
-	ArrayList<Ingredient> backpack;
 	private ListView listView;
 	private MyAdapter ingredientsAdapter;
 
@@ -30,12 +29,11 @@ public class ShowBackpack extends ActionBarActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_show_backpack);
 
-		backpack = (ArrayList<Ingredient>) ( (Backpack) getIntent().getSerializableExtra("backpack") ).getBackpack();
 		listView = (ListView) findViewById(R.id.backpackListView);
 
 		registerForContextMenu(listView);
 
-		ingredientsAdapter = new MyAdapter(this, backpack, null);
+		ingredientsAdapter = new MyAdapter(this, Backpack.getBackpack(), null);
 		listView.setAdapter(ingredientsAdapter);
 	}
 	
@@ -61,6 +59,13 @@ public class ShowBackpack extends ActionBarActivity
 			brewPotions(null);
 			return true;
 		}
+
+		else if (id == R.id.clearBackpackMenuItem)
+		{
+			Backpack.clear();
+			ingredientsAdapter.notifyDataSetChanged();
+			return true;
+		}
 		
 		return super.onOptionsItemSelected(item);
 	}
@@ -81,10 +86,10 @@ public class ShowBackpack extends ActionBarActivity
 			case R.id.removeFromBackpack:
 				int pos = ((AdapterView.AdapterContextMenuInfo) item.getMenuInfo()).position;
 				Ingredient ingredient = ((Ingredient)listView.getAdapter().getItem(pos));
-				if(backpack.contains(ingredient))
+				if(Backpack.contains(ingredient))
 				{
 					Toast.makeText(this, ingredient.getIngredientName() + " usunieto z plecaka.", Toast.LENGTH_SHORT).show();
-					backpack.remove(ingredient);
+					Backpack.remove(ingredient);
 					ingredientsAdapter.notifyDataSetChanged();
 				}
 
@@ -98,7 +103,6 @@ public class ShowBackpack extends ActionBarActivity
 	public void brewPotions(View view)
 	{
 		Intent intent = new Intent(this, PotionBrewery.class);
-		intent.putExtra("backpack", new Backpack(backpack));
 		startActivity(intent);
 	}
 }

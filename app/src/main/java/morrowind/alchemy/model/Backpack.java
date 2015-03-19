@@ -8,15 +8,44 @@ import java.util.ArrayList;
  */
 public class Backpack implements Serializable
 {
-	private ArrayList<Ingredient> backpack;
+	private static ArrayList<Ingredient> backpack;
 
-	public Backpack(ArrayList<Ingredient> backpack)
+	public static ArrayList<Ingredient> getBackpack()
 	{
-		this.backpack = backpack;
+		if(backpack == null) backpack = new ArrayList<Ingredient>();
+		return backpack;
 	}
 
-	public ArrayList<Ingredient> getBackpack()
+	public static void setBackpack(ArrayList<Ingredient> b)
 	{
-		return backpack;
+		backpack = b;
+	}
+
+	public static void add(Ingredient ingredient)
+	{
+		if(backpack == null) backpack = new ArrayList<Ingredient>();
+		backpack.add(ingredient);
+	}
+
+	public static void remove(Ingredient ingredient)
+	{
+		if(backpack != null && backpack.contains(ingredient)) backpack.remove(ingredient);
+	}
+
+	public static void clear()
+	{
+		if(backpack != null) backpack.clear();
+	}
+
+	public static boolean contains(Ingredient ingredient)
+	{
+		if(backpack != null) return backpack.contains(ingredient);
+		else return false;
+	}
+
+	public static int size()
+	{
+		if(backpack != null) return backpack.size();
+		else return 0;
 	}
 }
