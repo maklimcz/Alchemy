@@ -28,9 +28,14 @@ public class PotionBrewery extends ActionBarActivity
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
+
+		if (savedInstanceState != null) {
+			backpack = ((Backpack)savedInstanceState.getSerializable("backpack")).getBackpack();
+		}
+		else backpack = (ArrayList<Ingredient>) ( (Backpack) getIntent().getSerializableExtra("backpack") ).getBackpack();
 		setContentView(R.layout.activity_potion_brewery);
 
-		backpack = (ArrayList<Ingredient>) ( (Backpack) getIntent().getSerializableExtra("backpack") ).getBackpack();
+
 		listView = (ListView) findViewById(R.id.breweryListView);
 
 		registerForContextMenu(listView);
@@ -56,13 +61,7 @@ public class PotionBrewery extends ActionBarActivity
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		
-		//noinspection SimplifiableIfStatement
-		if (id == R.id.action_settings)
-		{
-			return true;
-		}
-		
+
 		return super.onOptionsItemSelected(item);
 	}
 
@@ -101,9 +100,15 @@ public class PotionBrewery extends ActionBarActivity
 		ArrayList<Potion> potionsWithThatEffect = new ArrayList<Potion>();
 		for(Potion potion : potions)
 		{
-			for(Effect effect1 : potion.getEffects())
-				if(effect1.equals(effect)) potionsWithThatEffect.add(potion);
+			if(potion.getEffects().contains(effect)) potionsWithThatEffect.add(potion);
 		}
 		return potionsWithThatEffect;
+	}
+
+	@Override
+	public void onSaveInstanceState(Bundle savedInstanceState) {
+
+		savedInstanceState.putSerializable("backpack", new Backpack(backpack));
+		super.onSaveInstanceState(savedInstanceState);
 	}
 }

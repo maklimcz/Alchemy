@@ -54,4 +54,13 @@ public class Potion
 		if(!ingredients.contains(ingredient)) ingredients.add(ingredient);
 	}
 
+	@Override
+	public boolean equals(Object o)
+	{
+		if(o instanceof Potion)
+		{
+			if(((Potion) o).getEffects().equals(this.getEffects())) return true;
+		}
+		return false;
+	}
 }
