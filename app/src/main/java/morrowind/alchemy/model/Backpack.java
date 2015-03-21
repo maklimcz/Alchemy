@@ -24,7 +24,7 @@ public class Backpack implements Serializable
 	public static void add(Ingredient ingredient)
 	{
 		if(backpack == null) backpack = new ArrayList<Ingredient>();
-		backpack.add(ingredient);
+		if(!backpack.contains(ingredient))backpack.add(ingredient);
 	}
 
 	public static void remove(Ingredient ingredient)

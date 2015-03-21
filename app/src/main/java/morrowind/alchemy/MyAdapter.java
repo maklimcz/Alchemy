@@ -38,6 +38,8 @@ public class MyAdapter extends ArrayAdapter<Ingredient> implements Filterable
 	private ToggleButton toggleButton;
 	private String search = "";
 
+	public List<Ingredient> getFilteredIngredient(){return filteredIngredients;}
+
 	public MyAdapter(Context context, List<Ingredient> ingredients, ToggleButton toggleButton)
 	{
 		super(context, R.layout.ingredient_entry, ingredients);

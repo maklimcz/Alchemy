@@ -8,7 +8,23 @@ import java.util.ArrayList;
 public class Potion
 {
 	private ArrayList<Effect> effects;
-	private ArrayList<Ingredient> ingredients;
+	private ArrayList<ArrayList<Ingredient>> ingredientLists;
+
+	public Potion(ArrayList<Effect> effects)
+	{
+		this.effects = effects;
+		ingredientLists = new ArrayList<ArrayList<Ingredient>>();
+	}
+
+	public void addIngredients(ArrayList<Ingredient> ingredients)
+	{
+		this.ingredientLists.add(ingredients);
+	}
+
+	public void addEffect(Effect effect)
+	{
+		effects.add(effect);
+	}
 
 	public ArrayList<Effect> getEffects()
 	{
@@ -20,46 +36,31 @@ public class Potion
 		this.effects = effects;
 	}
 
-	public ArrayList<Ingredient> getIngredients()
+	public ArrayList<ArrayList<Ingredient>> getIngredientLists()
 	{
-		return ingredients;
+		return ingredientLists;
 	}
 
-	public void setIngredients(ArrayList<Ingredient> ingredients)
+	public void setIngredientLists(ArrayList<ArrayList<Ingredient>> ingredientLists)
 	{
-		this.ingredients = ingredients;
+		this.ingredientLists = ingredientLists;
 	}
 
-	public Potion()
+	public boolean containsThatIngredients(ArrayList<Ingredient> ingredients)
 	{
-		this.effects = new ArrayList<Effect>();
-		this.ingredients = new ArrayList<Ingredient>();
-	}
-
-	public Potion(ArrayList<Effect> effects, ArrayList<Ingredient> ingredients)
-	{
-		this.effects = effects;
-		this.ingredients = ingredients;
-	}
-
-	public void addEffect(Effect effect)
-	{
-		if(effects == null) effects = new ArrayList<Effect>();
-		if(!effects.contains(effect)) effects.add(effect);
-	}
-
-	public void addIngredient(Ingredient ingredient)
-	{
-		if(ingredients == null) ingredients = new ArrayList<Ingredient>();
-		if(!ingredients.contains(ingredient)) ingredients.add(ingredient);
+		for(ArrayList<Ingredient> ingredientList : ingredientLists)
+		{
+			if(ingredientList.containsAll(ingredients)) return true;
+		}
+		return false;
 	}
 
 	@Override
 	public boolean equals(Object o)
 	{
-		if(o instanceof Potion)
+		if (o instanceof Potion)
 		{
-			if(((Potion) o).getEffects().equals(this.getEffects())) return true;
+			return (((Potion) o).getEffects().containsAll(this.getEffects()));
 		}
 		return false;
 	}

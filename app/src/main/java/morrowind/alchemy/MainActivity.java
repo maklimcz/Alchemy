@@ -118,6 +118,15 @@ public class MainActivity extends ActionBarActivity
 			showBackpack(null);
 			return true;
 		}
+
+		if (id == R.id.addAllDisplayedIngredients)
+		{
+			for(Ingredient ingredient : ingredientsAdapter.getFilteredIngredient())
+			{
+				Backpack.add(ingredient);
+			}
+			return true;
+		}
 		return true;
 	}
 
@@ -159,6 +168,7 @@ public class MainActivity extends ActionBarActivity
 				return super.onContextItemSelected(item);
 		}
 	}
+
 
 	public void showBackpack(View view)
 	{

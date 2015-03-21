@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -18,9 +19,9 @@ import morrowind.alchemy.model.Potion;
 
 public class PotionBrewery extends ActionBarActivity
 {
-	private ListView listView;
+	private ExpandableListView listView;
 	private ArrayList<Potion> potions;
-	private PotionsAdapter potionsAdapter;
+	private PotionsAdapterExpandable potionsAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -29,13 +30,11 @@ public class PotionBrewery extends ActionBarActivity
 		setContentView(R.layout.activity_potion_brewery);
 
 
-		listView = (ListView) findViewById(R.id.breweryListView);
-
-		registerForContextMenu(listView);
+		listView = (ExpandableListView) findViewById(R.id.breweryListView);
 
 		potions = brewPotions(Backpack.getBackpack());
 		Toast.makeText(this, "Brewed " + potions.size() + " potions.", Toast.LENGTH_SHORT).show();
-		potionsAdapter = new PotionsAdapter(this, potions);
+		potionsAdapter = new PotionsAdapterExpandable(this, potions);
 		listView.setAdapter(potionsAdapter);
 	}
 	
@@ -61,53 +60,41 @@ public class PotionBrewery extends ActionBarActivity
 	private ArrayList<Potion> brewPotions(ArrayList<Ingredient> ingredients)
 	{
 		ArrayList<Potion> potions = new ArrayList<Potion>();
-		ArrayList<Potion> result = new ArrayList<Potion>();
 
-
-		for(Ingredient ingredient : ingredients)
+		for(Ingredient ingredient1 : ingredients)
 		{
-
-			for(Effect effect : ingredient.getEffects())
+			for(Ingredient ingredient2 : ingredients)
 			{
-				if(potionsWithThatEffect(potions, effect).isEmpty())
+				if(!ingredient1.equals(ingredient2) && !Ingredient.commonEffects(ingredient1, ingredient2).isEmpty())
 				{
-					Potion potion = new Potion();
-					potion.addEffect(effect);
-					potion.addIngredient(ingredient);
-					potions.add(potion);
-				}
-				else
-				{
-					for(Potion potionWithThatEffect : potionsWithThatEffect(potions, effect))
-						potionWithThatEffect.addIngredient(ingredient);
+					Potion potionWithThatEffects = potionWithThatEffects(potions, Ingredient.commonEffects(ingredient1, ingredient2));
+					ArrayList<Ingredient> tempIngreds = new ArrayList<>();
+					tempIngreds.add(ingredient1);
+					tempIngreds.add(ingredient2);
+					if(potionWithThatEffects == null)
+					{
+						potionWithThatEffects = new Potion(Ingredient.commonEffects(ingredient1, ingredient2));
+						potionWithThatEffects.addIngredients(tempIngreds);
+						potions.add(potionWithThatEffects);
+					}
+					else if(!potionWithThatEffects.containsThatIngredients(tempIngreds))
+					{
+						potionWithThatEffects.addIngredients(tempIngreds);
+					}
+
 				}
 			}
 		}
-		for(Potion potion : potions)
-		{
-			if(potion.getIngredients().size() >= 2) result.add(potion);
-		}
-
-		return result;
+		return potions;
 	}
 
-	private ArrayList<Potion> potionsWithThatEffects(ArrayList<Potion> potions, ArrayList<Effect> effects)
+	private Potion potionWithThatEffects(ArrayList<Potion> potions, ArrayList<Effect> effects)
 	{
-		ArrayList<Potion> potionsWithThatEffects = new ArrayList<Potion>();
 		for(Potion potion : potions)
 		{
-			if(potion.getEffects().containsAll(effects)) potionsWithThatEffects.add(potion);
+			if(potion.getEffects().containsAll(effects) && potion.getEffects().size() == effects.size()) return potion;
 		}
-		return potionsWithThatEffects;
+		return null;
 	}
 
-	private ArrayList<Potion> potionsWithThatEffect(ArrayList<Potion> potions, Effect effect)
-	{
-		ArrayList<Potion> potionsWithThatEffect = new ArrayList<Potion>();
-		for(Potion potion : potions)
-		{
-			if(potion.getEffects().contains(effect)) potionsWithThatEffect.add(potion);
-		}
-		return potionsWithThatEffect;
-	}
 }

@@ -89,29 +89,44 @@ public class PotionsAdapter extends ArrayAdapter<Potion> implements Filterable
 			innerTable.addView(row);
 		}
 
-		for (Ingredient ingredient: potions.get(position).getIngredients())
+		for (int i = 0 ; i < potions.get(position).getIngredientLists().size() ; ++i)
 		{
-			LinearLayout row = new LinearLayout(context);
-			row.setOrientation(LinearLayout.HORIZONTAL);
-			ImageView row_icon = new ImageView(context);
-			try
+			ArrayList<Ingredient> ingredientList = potions.get(position).getIngredientLists().get(i);
+			for(Ingredient ingredient : ingredientList)
 			{
-				InputStream is = am.open(ingredient.getIngredientIcon());
-				row_icon.setImageDrawable(Drawable.createFromStream(is, ingredient.getIngredientIcon()));
-			} catch (IOException e)
+				LinearLayout row = new LinearLayout(context);
+				row.setOrientation(LinearLayout.HORIZONTAL);
+				ImageView row_icon = new ImageView(context);
+				try
+				{
+					InputStream is = am.open(ingredient.getIngredientIcon());
+					row_icon.setImageDrawable(Drawable.createFromStream(is, ingredient.getIngredientIcon()));
+				} catch (IOException e)
+				{
+					e.printStackTrace();
+				} catch (NullPointerException ex)
+				{
+					Log.d("Exception", ingredient.getIngredientName() + " : " + ex.getMessage());
+				}
+
+				TextView row_text = new TextView(context);
+				row_text.setText(ingredient.getIngredientName());
+				row_text.setTextColor(Color.WHITE);
+				row.addView(row_icon);
+				row.addView(row_text);
+				innerTable.addView(row);
+			}
+			if(i < potions.get(position).getIngredientLists().size()-1 )
 			{
-				e.printStackTrace();
-			} catch (NullPointerException ex)
-			{
-				Log.d("Exception", ingredient.getIngredientName() + " : " + ex.getMessage());
+				LinearLayout separator = new LinearLayout(context);
+				separator.setOrientation(LinearLayout.HORIZONTAL);
+				TextView row_text = new TextView(context);
+				row_text.setText("");
+				row_text.setTextSize(5.0f);
+				separator.addView(row_text);
+				innerTable.addView(separator);
 			}
 
-			TextView row_text = new TextView(context);
-			row_text.setText(ingredient.getIngredientName());
-			row_text.setTextColor(Color.WHITE);
-			row.addView(row_icon);
-			row.addView(row_text);
-			innerTable.addView(row);
 		}
 
 		return rowView;
