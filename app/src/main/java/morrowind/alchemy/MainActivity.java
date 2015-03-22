@@ -1,6 +1,7 @@
 package morrowind.alchemy;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -10,11 +11,15 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
+
+import com.nhaarman.listviewanimations.itemmanipulation.DynamicListView;
+import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.OnDismissCallback;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -32,7 +37,7 @@ public class MainActivity extends ActionBarActivity
 {
 
 	private EditText editText;
-	private ListView listView;
+	private DynamicListView listView;
 	private ToggleButton toggleButton;
 	private ArrayList<Ingredient> ingredients;
 	private ArrayList<Effect> effects;
@@ -44,7 +49,7 @@ public class MainActivity extends ActionBarActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		listView = (ListView) findViewById(R.id.listView);
+		listView = (DynamicListView) findViewById(R.id.listView);
 		registerForContextMenu(listView);
 		editText = (EditText) findViewById(R.id.editText);
 		toggleButton = (ToggleButton) findViewById(R.id.toggleButton);
@@ -95,7 +100,20 @@ public class MainActivity extends ActionBarActivity
 			{
 			}
 		});
-	}
+
+
+        listView.enableSwipeToDismiss(
+                new OnDismissCallback() {
+                    @Override
+                    public void onDismiss(@NonNull final ViewGroup listView, @NonNull final int[] reverseSortedPositions) {
+                        for (int position : reverseSortedPositions) {
+                            addIngredient(ingredientFromPosition(position));
+                        }
+                    }
+                }
+        );
+    }
+
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
@@ -150,16 +168,8 @@ public class MainActivity extends ActionBarActivity
 		{
 			case R.id.addToBackpack:
 				int pos = ((AdapterView.AdapterContextMenuInfo) item.getMenuInfo()).position;
-				Ingredient ingredient = ((Ingredient)listView.getAdapter().getItem(pos));
-				if(Backpack.contains(ingredient))
-				{
-					Toast.makeText(this, ingredient.getIngredientName() + " juz jest w plecaku.", Toast.LENGTH_SHORT).show();
-				}
-					else
-				{
-					Backpack.add(ingredient);
-					Toast.makeText(this, ingredient.getIngredientName() + " dodano do plecaka.", Toast.LENGTH_SHORT).show();
-				}
+				Ingredient ingredient = ingredientFromPosition(pos);
+                addIngredient(ingredient);
 				return true;
 			case R.id.showBackpack:
 				showBackpack(null);
@@ -175,4 +185,21 @@ public class MainActivity extends ActionBarActivity
 		Intent intent = new Intent(this, ShowBackpack.class);
 		startActivity(intent);
 	}
+
+    private Ingredient ingredientFromPosition(int pos) {
+        return ((Ingredient)listView.getAdapter().getItem(pos));
+    }
+
+    private void addIngredient(Ingredient ingredient) {
+        if(Backpack.contains(ingredient))
+        {
+            Toast.makeText(this, ingredient.getIngredientName() + " juz jest w plecaku.", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            Backpack.add(ingredient);
+            Toast.makeText(this, ingredient.getIngredientName() + " dodano do plecaka.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }
