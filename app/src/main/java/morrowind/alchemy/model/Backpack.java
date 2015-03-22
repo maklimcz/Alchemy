@@ -3,16 +3,12 @@ package morrowind.alchemy.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-/**
- * Created by cj on 2015-03-18.
- */
 public class Backpack implements Serializable
 {
-	private static ArrayList<Ingredient> backpack;
+	private static ArrayList<Ingredient> backpack = new ArrayList<>();
 
 	public static ArrayList<Ingredient> getBackpack()
 	{
-		if(backpack == null) backpack = new ArrayList<Ingredient>();
 		return backpack;
 	}
 
@@ -23,29 +19,26 @@ public class Backpack implements Serializable
 
 	public static void add(Ingredient ingredient)
 	{
-		if(backpack == null) backpack = new ArrayList<Ingredient>();
 		if(!backpack.contains(ingredient))backpack.add(ingredient);
 	}
 
 	public static void remove(Ingredient ingredient)
 	{
-		if(backpack != null && backpack.contains(ingredient)) backpack.remove(ingredient);
+		backpack.remove(ingredient);
 	}
 
 	public static void clear()
 	{
-		if(backpack != null) backpack.clear();
+		backpack.clear();
 	}
 
 	public static boolean contains(Ingredient ingredient)
 	{
-		if(backpack != null) return backpack.contains(ingredient);
-		else return false;
+		return backpack.contains(ingredient);
 	}
 
 	public static int size()
 	{
-		if(backpack != null) return backpack.size();
-		else return 0;
+		return backpack.size();
 	}
 }
