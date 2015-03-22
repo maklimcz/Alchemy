@@ -1,6 +1,7 @@
 package morrowind.alchemy;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -8,9 +9,15 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.nhaarman.listviewanimations.appearance.simple.AlphaInAnimationAdapter;
+import com.nhaarman.listviewanimations.itemmanipulation.DynamicListView;
+import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.OnDismissCallback;
+import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.undo.SimpleSwipeUndoAdapter;
 
 import java.util.ArrayList;
 
@@ -20,7 +27,7 @@ import morrowind.alchemy.model.Ingredient;
 
 public class ShowBackpack extends ActionBarActivity
 {
-	private ListView listView;
+	private DynamicListView listView;
 	private MyAdapter ingredientsAdapter;
 
 	@Override
@@ -29,14 +36,23 @@ public class ShowBackpack extends ActionBarActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_show_backpack);
 
-		listView = (ListView) findViewById(R.id.backpackListView);
+		listView = (DynamicListView) findViewById(R.id.backpackListView);
 
 		registerForContextMenu(listView);
 
 		ingredientsAdapter = new MyAdapter(this, Backpack.getBackpack(), null);
 		listView.setAdapter(ingredientsAdapter);
-	}
-	
+        listView.enableSwipeToDismiss(
+                new OnDismissCallback() {
+                    @Override
+                    public void onDismiss(@NonNull final ViewGroup listView, @NonNull final int[] reverseSortedPositions) {
+                        for (int position : reverseSortedPositions) {
+                            removeItem(ingredientFromPosition(position));
+                        }
+                    }
+                }
+        );	}
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
@@ -44,7 +60,7 @@ public class ShowBackpack extends ActionBarActivity
 		getMenuInflater().inflate(R.menu.menu_show_backpack, menu);
 		return true;
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item)
 	{
@@ -52,7 +68,7 @@ public class ShowBackpack extends ActionBarActivity
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		
+
 		//noinspection SimplifiableIfStatement
 		if (id == R.id.brewPotionsMenuItem)
 		{
@@ -66,7 +82,7 @@ public class ShowBackpack extends ActionBarActivity
 			ingredientsAdapter.notifyDataSetChanged();
 			return true;
 		}
-		
+
 		return super.onOptionsItemSelected(item);
 	}
 
@@ -85,12 +101,12 @@ public class ShowBackpack extends ActionBarActivity
 		{
 			case R.id.removeFromBackpack:
 				int pos = ((AdapterView.AdapterContextMenuInfo) item.getMenuInfo()).position;
-				Ingredient ingredient = ((Ingredient)listView.getAdapter().getItem(pos));
+				Ingredient ingredient = ingredientFromPosition(pos);
+
+                //Czy to sprawdzenie jest konieczne?
 				if(Backpack.contains(ingredient))
 				{
-					Toast.makeText(this, ingredient.getIngredientName() + " usunieto z plecaka.", Toast.LENGTH_SHORT).show();
-					Backpack.remove(ingredient);
-					ingredientsAdapter.notifyDataSetChanged();
+                    removeItem(ingredient);
 				}
 
 				return true;
@@ -105,4 +121,15 @@ public class ShowBackpack extends ActionBarActivity
 		Intent intent = new Intent(this, PotionBrewery.class);
 		startActivity(intent);
 	}
+
+    private Ingredient ingredientFromPosition(int pos) {
+        return ((Ingredient)listView.getAdapter().getItem(pos));
+    }
+
+    private void removeItem(Ingredient ingredient) {
+        Toast.makeText(this, ingredient.getIngredientName() + " usunieto z plecaka.", Toast.LENGTH_SHORT).show();
+        Backpack.remove(ingredient);
+        ingredientsAdapter.notifyDataSetChanged();
+    }
+
 }
